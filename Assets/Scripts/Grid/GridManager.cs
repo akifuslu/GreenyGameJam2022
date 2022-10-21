@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 
 namespace Grid
 {
@@ -50,7 +54,7 @@ namespace Grid
             if (right != -1) _tiles[right].CanMove();
         }
 
-
+#if UNITY_EDITOR
         private void Update()
         {
             Refresh();
@@ -58,13 +62,13 @@ namespace Grid
 
         private void Refresh()
         {
-            _tiles = GetComponentsInChildren<Tile>().ToList();
+            _tiles = GetComponentsInChildren<Tile>(true).ToList();
 
             if (_tiles.Count < _totalTileCount)
             {
                 while(_tiles.Count < _totalTileCount)
                 {
-                    var nt = Instantiate(_tilePrefab, transform);
+                    var nt = PrefabUtility.InstantiatePrefab(_tilePrefab, transform) as Tile;
                     _tiles.Add(nt);
                 }
             }
@@ -96,4 +100,6 @@ namespace Grid
             }
         }
     }
+#endif
+
 }

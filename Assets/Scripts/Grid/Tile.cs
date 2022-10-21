@@ -5,9 +5,26 @@ using UnityEngine;
 
 namespace Grid
 {
+
+    public enum TileType
+    {
+        DEFAULT,
+        EMPTY,
+        START,
+        END,
+        FOREST,
+        COALMINE,
+        STONEMINE,
+        WATER,
+        FARM,
+        DESERT
+    }
+
+    [ExecuteAlways]
     public class Tile : MonoBehaviour
     {
 
+        public TileType Type;
         private float _radius;
         private int _index;
         private GridManager _grid;
@@ -27,6 +44,18 @@ namespace Grid
             _grid.HighlightNei(_index);
             GetComponent<SpriteRenderer>().color = Color.yellow;
         }
+
+#if UNITY_EDITOR
+        private void Update()
+        {
+            Refresh();
+        }
+
+        private void Refresh()
+        {
+            gameObject.SetActive(Type != TileType.EMPTY);
+        }
+#endif
 
         private void OnDrawGizmosSelected()
         {
