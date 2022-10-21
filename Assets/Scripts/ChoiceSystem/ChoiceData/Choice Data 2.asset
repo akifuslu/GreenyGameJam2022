@@ -15,3 +15,6 @@ MonoBehaviour:
   choiceSprite: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
   choiceName: 2
   description: 12
+  choiceActionDataList:
+  - actionType: 0
+    value: 2

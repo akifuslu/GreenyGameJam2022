@@ -7,7 +7,7 @@ namespace ChoiceSystem.ChoiceActions
         public override ChoiceActionTypes ActionType => ChoiceActionTypes.Example;
         public override void DoAction(CardActionParameters actionParameters)
         {
-            Debug.Log("Example Choice Action");
+            Debug.Log("Example Choice Action" + actionParameters.Value);
         }
     }
 }

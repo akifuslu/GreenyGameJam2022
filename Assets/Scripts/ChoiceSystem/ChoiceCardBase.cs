@@ -25,6 +25,7 @@ namespace ChoiceSystem
         public void TriggerChoice()
         {
             MyData.TriggerChoiceAction();
+            ChoiceManager.Instance.OnChoiceSelected();
         }
         
     }

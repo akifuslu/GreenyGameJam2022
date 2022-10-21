@@ -20,6 +20,8 @@ namespace ChoiceSystem
         
         private readonly List<ChoiceCardBase> _spawnedChoiceCardList = new List<ChoiceCardBase>();
 
+        public Action OnChoiceSelectedAction;
+
         private void Awake()
         {
             Instance = this;
@@ -41,6 +43,12 @@ namespace ChoiceSystem
 #endif
         }
 
+        public void OnChoiceSelected()
+        {
+            DisposeSpawnedChoiceCards();
+            CloseChoiceCanvas();
+            OnChoiceSelectedAction?.Invoke();
+        }
         public void OpenChoiceCanvas(string title = "")
         {
             if (!string.IsNullOrEmpty(title) && !string.IsNullOrWhiteSpace(title))
@@ -57,7 +65,7 @@ namespace ChoiceSystem
 
         public void CloseChoiceCanvas()
         {
-            choiceCanvas.gameObject.SetActive(true);
+            choiceCanvas.gameObject.SetActive(false);
         }
 
         public void SpawnChoices(List<ChoiceDataBase> possibleChoiceList,int spawnCount = 3)
