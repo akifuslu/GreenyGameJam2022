@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 namespace Grid
@@ -26,26 +27,51 @@ namespace Grid
 
         public TileType Type;
         private float _radius;
-        private int _index;
         private GridManager _grid;
+        private SpriteRenderer _outline;
 
-        public void Init(Vector2 pos, float radius, float padding, int index, GridManager grid)
+        private List<Tile> _nei;
+
+
+        private void Awake()
         {
-            transform.position = pos;
-            transform.localScale = Vector3.one * radius * 2 - Vector3.one * padding; 
-            _radius = radius;
-            _index = index;
-            _grid = grid;
+            _outline = GetComponent<SpriteRenderer>();
+            _grid = GetComponentInParent<GridManager>();
+        }
+
+        public bool CanMoveTo(Tile target)
+        {
+            return _nei.Contains(target);
+        }
+
+        public void OnEnter()
+        {
+            SetOutline(Color.yellow);
+            _nei = _grid.GetNei(this);
+            _nei.ForEach(n => n.SetOutline(Color.green));
+        }
+
+        public void OnLeave()
+        {
+            SetOutline(Color.red);
+            _nei.ForEach(n => n.SetOutline(Color.white));
         }
 
 
-        public void Highlight()
+        public void SetOutline(Color color)
         {
-            _grid.HighlightNei(_index);
-            GetComponent<SpriteRenderer>().color = Color.yellow;
+            _outline.color = color;
         }
 
 #if UNITY_EDITOR
+        public void Init(Vector2 pos, float radius, float padding, GridManager grid)
+        {
+            transform.position = pos;
+            transform.localScale = Vector3.one * radius * 2 - Vector3.one * padding;
+            _radius = radius;
+            _grid = grid;
+        }
+
         private void Update()
         {
             Refresh();
@@ -54,6 +80,7 @@ namespace Grid
         private void Refresh()
         {
             gameObject.SetActive(Type != TileType.EMPTY);
+            GetComponentInChildren<TextMeshPro>().text = Type.ToString();
         }
 #endif
 

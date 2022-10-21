@@ -8,6 +8,13 @@ namespace Control
     public class Interactor : MonoBehaviour
     {
 
+        private PlayerAvatar _avatar;
+
+        private void Awake()
+        {
+            _avatar = FindObjectOfType<PlayerAvatar>();
+        }
+
         private void Update()
         {
             if(Input.GetMouseButtonDown(0))
@@ -23,7 +30,7 @@ namespace Control
             {
                 if(hit.collider.GetComponent<Tile>() is Tile tile)
                 {
-                    tile.Highlight();
+                    _avatar.MoveTo(tile);
                 }
             }
         }

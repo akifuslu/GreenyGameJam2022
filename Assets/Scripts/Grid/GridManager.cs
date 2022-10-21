@@ -31,9 +31,15 @@ namespace Grid
         private List<Tile> _tiles;
 
 
-        public void HighlightNei(int index)
+        public Tile GetStartingTile()
         {
-            _tiles.ForEach(t => t.Clear());
+            return _tiles.FirstOrDefault(t => t.Type == TileType.START);
+        }
+
+        public List<Tile> GetNei(Tile tile)
+        {
+            var index = _tiles.IndexOf(tile);
+            var nei = new List<Tile>();
             var x = index % _countX;
             var y = index / _countX;
             var isEven = y % 2 == 0;
@@ -43,15 +49,23 @@ namespace Grid
             if (x == 0 && isEven) left = -1;
             if (x == _countX - 1 && !isEven) right = -1;
 
-            if(y == _countY - 1)
+            if (y == _countY - 1)
             {
                 left = -1;
                 right = -1;
             }
 
-            if (fwd < _tiles.Count) _tiles[fwd].CanMove();
-            if (left != -1) _tiles[left].CanMove();
-            if (right != -1) _tiles[right].CanMove();
+            if (fwd < _tiles.Count) nei.Add(_tiles[fwd]);
+            if (left != -1) nei.Add(_tiles[left]);
+            if (right != -1) nei.Add(_tiles[right]);
+
+            nei.RemoveAll(t => t.Type == TileType.EMPTY);
+            return nei;
+        }
+
+        private void Awake()
+        {
+            _tiles = GetComponentsInChildren<Tile>(true).ToList();
         }
 
 #if UNITY_EDITOR
@@ -92,7 +106,7 @@ namespace Grid
                 lb.x = sx + (i % 2) * _tileRadius * 1.5f;
                 for (int j = 0; j < _countX; j++)
                 {
-                    _tiles[k].Init(lb, _tileRadius, _padding, k, this);
+                    _tiles[k].Init(lb, _tileRadius, _padding, this);
                     k++;
                     lb.x += 3 * _tileRadius;
                 }
