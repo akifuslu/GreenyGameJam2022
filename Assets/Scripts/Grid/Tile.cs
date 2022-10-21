@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,12 +9,23 @@ namespace Grid
     {
 
         private float _radius;
+        private int _index;
+        private GridManager _grid;
 
-        public void Init(Vector2 pos, float radius, float padding)
+        public void Init(Vector2 pos, float radius, float padding, int index, GridManager grid)
         {
             transform.position = pos;
             transform.localScale = Vector3.one * radius * 2 - Vector3.one * padding; 
             _radius = radius;
+            _index = index;
+            _grid = grid;
+        }
+
+
+        public void Highlight()
+        {
+            _grid.HighlightNei(_index);
+            GetComponent<SpriteRenderer>().color = Color.yellow;
         }
 
         private void OnDrawGizmosSelected()
@@ -35,6 +47,16 @@ namespace Grid
                 dir = rot * dir;
                 v2 = center + dir;
             }
+        }
+
+        public void CanMove()
+        {
+            GetComponent<SpriteRenderer>().color = Color.green;
+        }
+
+        public void Clear()
+        {
+            GetComponent<SpriteRenderer>().color = Color.white;
         }
     }
 }
