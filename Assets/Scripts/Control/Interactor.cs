@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Grid;
+using Models;
 using UnityEngine;
 
 namespace Control

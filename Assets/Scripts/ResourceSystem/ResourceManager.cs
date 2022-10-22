@@ -37,12 +37,12 @@ namespace ResourceSystem
         private void Update()
         {
 #if UNITY_EDITOR
-            if (Input.GetKeyDown(KeyCode.Keypad3))
+            if (Input.GetKeyDown(KeyCode.A))
             {
                 IncreaseResource(allResourceDataList.RandomItem(),11);
             }
             
-            if (Input.GetKeyDown(KeyCode.Keypad4))
+            if (Input.GetKeyDown(KeyCode.S))
             {
                 DecreaseResource(allResourceDataList.RandomItem(),10);
             }

@@ -31,12 +31,12 @@ namespace ChoiceSystem
         private void Update()
         {
 #if UNITY_EDITOR
-            if (Input.GetKeyDown(KeyCode.Keypad1))
+            if (Input.GetKeyDown(KeyCode.Q))
             {
                 OpenChoiceCanvas();
             }
 
-            if (Input.GetKeyDown(KeyCode.Keypad2))
+            if (Input.GetKeyDown(KeyCode.W))
             {
                 CloseChoiceCanvas();
             }

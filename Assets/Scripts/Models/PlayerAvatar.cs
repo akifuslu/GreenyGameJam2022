@@ -2,39 +2,62 @@ using System.Collections;
 using System.Collections.Generic;
 using Grid;
 using UnityEngine;
+using Utility;
+using UniRx;
 
-public class PlayerAvatar : MonoBehaviour
+namespace Models
 {
-
-    private GridManager _grid;
-    private Tile _current;
-
-    private void Awake()
+    public class PlayerAvatar : MonoBehaviour
     {
-        _grid = FindObjectOfType<GridManager>();
+
+        private GridManager _grid;
+        private Tile _current;
+        private Tile _start;
+
+        private void Awake()
+        {
+            _grid = FindObjectOfType<GridManager>();
+        }
+
+        private void Start()
+        {
+            _start = _current = _grid.GetStartingTile();
+            OnNewTile();
+
+            MessageBus.OnEvent<EndTileReachedEvent>().Subscribe(ev =>
+            {
+                OnEndTile();
+            });
+        }
+
+        private void OnNewTile()
+        {
+            transform.position = _current.transform.position;
+            _current.OnEnter();
+
+            //if(_current.Type == TileType.END)
+            //{
+            //    OnEndTile();
+            //}
+        }
+
+        private void OnEndTile()
+        {
+            _grid.Clear();
+            _current = _start;
+            OnNewTile();
+        }
+
+        public void MoveTo(Tile target)
+        {
+            if (!_current.CanMoveTo(target))
+                return;
+
+            _current.OnLeave();
+            _current = target;
+
+            OnNewTile();
+        }
+
     }
-
-    private void Start()
-    {
-        _current = _grid.GetStartingTile();
-        OnNewTile();
-    }
-
-    private void OnNewTile()
-    {
-        transform.position = _current.transform.position;
-        _current.OnEnter();
-    }
-
-    public void MoveTo(Tile target)
-    {
-        if (!_current.CanMoveTo(target))
-            return;
-
-        _current.OnLeave();
-        _current = target;
-
-        OnNewTile();
-    }
-
 }

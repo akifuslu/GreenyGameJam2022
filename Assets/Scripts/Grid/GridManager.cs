@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Utility;
+
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -12,11 +14,13 @@ namespace Grid
     [ExecuteInEditMode]
     public class GridManager : MonoBehaviour
     {
-
         private int _totalTileCount => _countX * _countY;
 
         [SerializeField]
-        private Tile _tilePrefab;
+        private SerializedDictionary<TileType, Tile> _tileMapping;
+
+        [SerializeField]
+        private TileSlot _tileSlotPrefab;
         [SerializeField]
         private Vector2 _center;
         [SerializeField]
@@ -28,17 +32,17 @@ namespace Grid
         [SerializeField]
         private float _padding;
 
+        private List<TileSlot> _tileSlots;
         private List<Tile> _tiles;
 
 
         public Tile GetStartingTile()
         {
-            return _tiles.FirstOrDefault(t => t.Type == TileType.START);
+            return _tileSlots.FirstOrDefault(t => t.Type == TileType.START).Tile;
         }
 
-        public List<Tile> GetNei(Tile tile)
+        public List<Tile> GetNei(int index)
         {
-            var index = _tiles.IndexOf(tile);
             var nei = new List<Tile>();
             var x = index % _countX;
             var y = index / _countX;
@@ -55,17 +59,54 @@ namespace Grid
                 right = -1;
             }
 
-            if (fwd < _tiles.Count) nei.Add(_tiles[fwd]);
-            if (left != -1) nei.Add(_tiles[left]);
-            if (right != -1) nei.Add(_tiles[right]);
+            if (fwd < _tileSlots.Count) nei.Add(_tileSlots[fwd].Tile);
+            if (left != -1) nei.Add(_tileSlots[left].Tile);
+            if (right != -1) nei.Add(_tileSlots[right].Tile);
 
-            nei.RemoveAll(t => t.Type == TileType.EMPTY);
+            nei.RemoveAll(t => t == null);
             return nei;
+        }
+
+        public void Clear()
+        {
+            _tiles.ForEach(t => t.SetOutline(Color.white));
         }
 
         private void Awake()
         {
-            _tiles = GetComponentsInChildren<Tile>(true).ToList();
+            if (Application.isPlaying)
+            {
+                BuildTiles();
+            }
+        }
+
+        private void BuildTiles()
+        {
+            _tileSlots = GetComponentsInChildren<TileSlot>(true).ToList();
+            _tiles = new List<Tile>();
+
+            for (int i = 0; i < _tileSlots.Count; i++)
+            {
+                if(_tileSlots[i].Type == TileType.EMPTY)
+                {
+                    continue;
+                }
+
+                var t = Instantiate(_tileMapping[_tileSlots[i].Type], transform);
+                t.transform.position = _tileSlots[i].transform.position;
+                t.transform.localScale = Vector3.one * _tileRadius * 2 - Vector3.one * _padding;
+                _tiles.Add(t);
+                _tileSlots[i].Tile = t;
+            }
+
+            for (int i = 0; i < _tileSlots.Count; i++)
+            {
+                if (_tileSlots[i].Type == TileType.EMPTY)
+                {
+                    continue;
+                }
+                _tileSlots[i].Tile.Init(GetNei(i));
+            }
         }
 
 #if UNITY_EDITOR
@@ -76,22 +117,22 @@ namespace Grid
 
         private void Refresh()
         {
-            _tiles = GetComponentsInChildren<Tile>(true).ToList();
+            _tileSlots = GetComponentsInChildren<TileSlot>(true).ToList();
 
-            if (_tiles.Count < _totalTileCount)
+            if (_tileSlots.Count < _totalTileCount)
             {
-                while(_tiles.Count < _totalTileCount)
+                while(_tileSlots.Count < _totalTileCount)
                 {
-                    var nt = PrefabUtility.InstantiatePrefab(_tilePrefab, transform) as Tile;
-                    _tiles.Add(nt);
+                    var nt = PrefabUtility.InstantiatePrefab(_tileSlotPrefab, transform) as TileSlot;
+                    _tileSlots.Add(nt);
                 }
             }
-            else if (_tiles.Count > _totalTileCount)
+            else if (_tileSlots.Count > _totalTileCount)
             {
-                while (_tiles.Count > _totalTileCount)
+                while (_tileSlots.Count > _totalTileCount)
                 {
-                    var l = _tiles.Last();
-                    _tiles.Remove(l);
+                    var l = _tileSlots.Last();
+                    _tileSlots.Remove(l);
                     DestroyImmediate(l.gameObject);
                 }
             }
@@ -106,7 +147,7 @@ namespace Grid
                 lb.x = sx + (i % 2) * _tileRadius * 1.5f;
                 for (int j = 0; j < _countX; j++)
                 {
-                    _tiles[k].Init(lb, _tileRadius, _padding, this);
+                    _tileSlots[k].Init(lb, _tileRadius, _padding);
                     k++;
                     lb.x += 3 * _tileRadius;
                 }

@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &7702182780020723581
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1397806929969331218, guid: 19e75414c72fb43669a194c474a10a74, type: 3}
+      propertyPath: m_Name
+      value: EndTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 6328100176266083540, guid: 19e75414c72fb43669a194c474a10a74, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6328100176266083540, guid: 19e75414c72fb43669a194c474a10a74, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6328100176266083540, guid: 19e75414c72fb43669a194c474a10a74, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6328100176266083540, guid: 19e75414c72fb43669a194c474a10a74, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6328100176266083540, guid: 19e75414c72fb43669a194c474a10a74, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6328100176266083540, guid: 19e75414c72fb43669a194c474a10a74, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6328100176266083540, guid: 19e75414c72fb43669a194c474a10a74, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6328100176266083540, guid: 19e75414c72fb43669a194c474a10a74, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6328100176266083540, guid: 19e75414c72fb43669a194c474a10a74, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6328100176266083540, guid: 19e75414c72fb43669a194c474a10a74, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6328100176266083540, guid: 19e75414c72fb43669a194c474a10a74, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8241678674691731308, guid: 19e75414c72fb43669a194c474a10a74, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8241678674691731308, guid: 19e75414c72fb43669a194c474a10a74, type: 3}
+      propertyPath: m_Color.g
+      value: 0.98944926
+      objectReference: {fileID: 0}
+    - target: {fileID: 8241678674691731308, guid: 19e75414c72fb43669a194c474a10a74, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: -5897833879573100680, guid: 19e75414c72fb43669a194c474a10a74, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 19e75414c72fb43669a194c474a10a74, type: 3}
+--- !u!212 &6162591226713790203 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 4568420784865991046, guid: 19e75414c72fb43669a194c474a10a74, type: 3}
+  m_PrefabInstance: {fileID: 7702182780020723581}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8756589291756499823 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1397806929969331218, guid: 19e75414c72fb43669a194c474a10a74, type: 3}
+  m_PrefabInstance: {fileID: 7702182780020723581}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &224300233070583281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8756589291756499823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8289bc8a43648483b9b54c4348975a09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _outline: {fileID: 6162591226713790203}
