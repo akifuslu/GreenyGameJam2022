@@ -14,7 +14,12 @@ namespace ChoiceSystem.CanvasScripts
         public void SetMainEventText(string mainEventText)
         {
             mainEventTextField.text = mainEventText;
-            _textDisplayTween =TextHelper.PlayingText(mainEventTextField);
+            _textDisplayTween =TextHelper.PlayingText(mainEventTextField,onCompletedAction: PublishDescription, onKillAction: PublishDescription);
+        }
+
+        private void PublishDescription()
+        {
+            MessageBus.Publish(new SpecialChoiceDescriptionFinishedEvent());
         }
 
         public override void OnClosed()
@@ -23,4 +28,6 @@ namespace ChoiceSystem.CanvasScripts
             base.OnClosed();
         }
     }
+    
+    public class SpecialChoiceDescriptionFinishedEvent : GameEvent{}
 }

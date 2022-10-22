@@ -1,3 +1,4 @@
+using System;
 using ChoiceSystem;
 using DG.Tweening;
 using TMPro;
@@ -8,7 +9,7 @@ namespace Utility
 {
     public static class TextHelper
     {
-        public static Tweener PlayingText(TextMeshProUGUI textField,float durationRate = 10f, float startDelay =0f)
+        public static Tweener PlayingText(TextMeshProUGUI textField,float durationRate = 10f, float startDelay =0f,Action onKillAction = null,Action onCompletedAction = null)
         {
             var charCount = textField.text.Length;
             var showDuration = Mathf.RoundToInt(charCount / durationRate);
@@ -20,8 +21,12 @@ namespace Utility
                 }, 0, charCount, showDuration).SetDelay(startDelay)
                 .OnKill((() =>
                 {
+                    onKillAction?.Invoke();
                     textField.maxVisibleCharacters = charCount;
-                }));
+                })).OnComplete(() =>
+                {
+                    onCompletedAction?.Invoke();
+                });
             
             MessageBus.OnEvent<OnMouseButtonDownEvent>().Take(1).Subscribe(ev =>
             {

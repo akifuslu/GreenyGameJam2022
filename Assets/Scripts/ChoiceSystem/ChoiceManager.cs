@@ -4,6 +4,7 @@ using System.Linq;
 using ChoiceSystem.CanvasScripts;
 using DG.Tweening;
 using TMPro;
+using UniRx;
 using UnityEngine;
 using Utility;
 
@@ -113,14 +114,29 @@ namespace ChoiceSystem
         public void SpawnChoices(List<ChoiceDataBase> possibleChoiceList,bool isSpecial,int spawnCount = 3)
         {
             DisposeSpawnedChoiceCards();
+            if (isSpecial)
+            {
+                MessageBus.OnEvent<SpecialChoiceDescriptionFinishedEvent>().Take(1).Subscribe(ev =>
+                {
+                    PrepareSpawn(possibleChoiceList, true);
+                });
+            }
+            else
+            {
+                PrepareSpawn(possibleChoiceList, false);
+            }
+        }
+
+        private void PrepareSpawn(List<ChoiceDataBase> possibleChoiceList, bool isSpecial)
+        {
             for (int i = 0; i < possibleChoiceList.Count; i++)
             {
-                SpawnChoice(possibleChoiceList[i], isSpecial,i);
+                SpawnChoice(possibleChoiceList[i], isSpecial, i);
             }
 
             if (_activeChoiceCanvas)
             {
-                var hasNoOption =_spawnedChoiceCardList.All(x => !x.CardButton.interactable);
+                var hasNoOption = _spawnedChoiceCardList.All(x => !x.CardButton.interactable);
                 if (hasNoOption)
                 {
                     _activeChoiceCanvas.NoChoiceButton.gameObject.SetActive(true);
