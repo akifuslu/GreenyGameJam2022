@@ -60,11 +60,25 @@ namespace ChoiceSystem
     {
         [SerializeField] private ChoiceActionTypes actionType;
         [SerializeField] private GameResourceTypes res;
-        [SerializeField] private int value;
+        [SerializeField] private int baseValue;
+        private int value;
         private ResourceTile tile;
 
         public ChoiceActionTypes ActionType => actionType;
-        public int Value => value;
+
+        public int BaseValue => baseValue;
+
+        public int Value
+        {
+            get
+            {
+                return value;
+            }
+            set
+            {
+                this.value = value;
+            }
+        }
         public GameResourceTypes Res => res;
         public ResourceTile Tile
         {
@@ -83,6 +97,7 @@ namespace ChoiceSystem
             actionType = other.actionType;
             res = other.res;
             value = other.value;
+            baseValue = other.baseValue;
         }
 
         public override string ToString()

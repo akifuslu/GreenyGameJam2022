@@ -4,6 +4,7 @@ using ResourceSystem;
 using ChoiceSystem;
 using UniRx;
 using TMPro;
+using System.Linq;
 
 namespace Grid
 {
@@ -73,6 +74,7 @@ namespace Grid
         public void ReduceResource(int amount)
         {
             _resourceAmount.Value -= amount;
+            RefreshResourceActions();
         }
 
         public override void OnDayEnd()
@@ -87,8 +89,17 @@ namespace Grid
             _resourceAmount.Value += _replenish.Value;
 
             _resourceAmount.Value = Mathf.Clamp(_resourceAmount.Value, 0, MaxResourceAmount);
-
+            RefreshResourceActions();
             _visited = false;
+        }
+
+        private void RefreshResourceActions()
+        {
+            foreach (var choice in _choices)
+            {
+                var gr = choice.ChoiceActionDatas.Where(a => a.ActionType == ChoiceActionTypes.GatherResource).ToList();
+                gr.ForEach(s => s.Value = Mathf.Min(s.BaseValue, _resourceAmount.Value));
+            }
         }
     }
 }
