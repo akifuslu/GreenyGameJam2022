@@ -23,7 +23,7 @@ namespace Utility
                     textField.maxVisibleCharacters = charCount;
                 }));
             
-            MessageBus.OnEvent<OnMouseButtonDownEvent>().Subscribe(ev =>
+            MessageBus.OnEvent<OnMouseButtonDownEvent>().Take(1).Subscribe(ev =>
             {
                 if (t != null)
                     t.Kill();
