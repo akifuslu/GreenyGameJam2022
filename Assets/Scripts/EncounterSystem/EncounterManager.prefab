@@ -45,4 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allEncounterDatalist:
-  - {fileID: 11400000, guid: 57002605863576e4ca91b56f256ad089, type: 2}
+  - {fileID: 11400000, guid: 2a7fdc44237994f42bbbd7b5f4851187, type: 2}

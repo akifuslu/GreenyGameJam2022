@@ -5,6 +5,7 @@ namespace ChoiceSystem
         Example,
         GatherResource,
         ReduceReplenish,
-        SpendResource
+        SpendResource,
+        GiveAll
     }
 }
