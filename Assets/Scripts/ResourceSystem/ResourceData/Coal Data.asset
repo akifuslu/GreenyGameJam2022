@@ -16,3 +16,5 @@ MonoBehaviour:
   resourceName: Coal
   resourceSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   backgroundColor: {r: 0.43529415, g: 0.23137257, b: 0.14117648, a: 1}
+  excludeStock: 0
+  stockGoalValue: 25

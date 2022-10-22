@@ -16,3 +16,5 @@ MonoBehaviour:
   resourceName: Food
   resourceSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   backgroundColor: {r: 1, g: 0.6303066, b: 0.19339618, a: 1}
+  excludeStock: 0
+  stockGoalValue: 25

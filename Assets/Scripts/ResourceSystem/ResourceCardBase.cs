@@ -17,13 +17,15 @@ namespace ResourceSystem
         public int TotalAmount { get; private set; }
         public ResourceData MyData { get; private set; }
 
-        public void IncreaseAmount(int amount)
+        public TextMeshProUGUI ResourceCountTextField => resourceCountTextField;
+
+        public virtual void IncreaseAmount(int amount)
         {
             TotalAmount += amount;
             UpdateResourceCountText();
         }
 
-        public void DecreaseAmount(int amount)
+        public virtual void DecreaseAmount(int amount)
         {
             TotalAmount -= amount;
             if (TotalAmount<0)
@@ -33,7 +35,7 @@ namespace ResourceSystem
             UpdateResourceCountText();
         }
         
-        public void Build(ResourceData targetData)
+        public virtual void Build(ResourceData targetData)
         {
             MyData = targetData;
             resourceNameTextField.text = targetData.ResourceName;
@@ -45,9 +47,9 @@ namespace ResourceSystem
             UpdateResourceCountText();
         }
 
-        public void UpdateResourceCountText()
+        public virtual void UpdateResourceCountText()
         {
-            resourceCountTextField.text = TotalAmount.ToString();
+            ResourceCountTextField.text = TotalAmount.ToString();
         }
 
     }
