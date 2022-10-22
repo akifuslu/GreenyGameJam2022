@@ -75,7 +75,8 @@ namespace ChoiceSystem
             choiceChoiceCanvas.gameObject.SetActive(true);
             specialChoiceChoiceCanvas.gameObject.SetActive(false);
             _activeChoiceCanvas = choiceChoiceCanvas;
-            SpawnChoices(choices,false);
+            DisposeSpawnedChoiceCards();
+            _activeChoiceCanvas.Build(choices,false);
         }
         
         public void OpenSpecialChoiceCanvas(List<ChoiceDataBase> choices,string mainEventText, string title = "")
@@ -92,7 +93,8 @@ namespace ChoiceSystem
             specialChoiceChoiceCanvas.gameObject.SetActive(true);
             specialChoiceChoiceCanvas.SetMainEventText(mainEventText);
             _activeChoiceCanvas = specialChoiceChoiceCanvas;
-            SpawnChoices(choices,true);
+            DisposeSpawnedChoiceCards();
+            _activeChoiceCanvas.Build(choices,true);
         }
 
         public void CloseChoiceCanvas()
@@ -104,15 +106,15 @@ namespace ChoiceSystem
         public void SpawnChoices(List<ChoiceDataBase> possibleChoiceList,bool isSpecial,int spawnCount = 3)
         {
             DisposeSpawnedChoiceCards();
-            
-            
             for (int i = 0; i < possibleChoiceList.Count; i++)
             {
-                SpawnChoice(possibleChoiceList[i], isSpecial);
+                var card =SpawnChoice(possibleChoiceList[i], isSpecial);
+                card.transform.localScale = Vector3.zero;
+                card.transform.DOScale(Vector3.one, 0.2f).SetEase(Ease.OutBack).SetDelay(0.1f * (i+1));
             }
         }
 
-        private void SpawnChoice(ChoiceDataBase choiceData,bool isSpecial)
+        private ChoiceCardBase SpawnChoice(ChoiceDataBase choiceData,bool isSpecial)
         {
             var prefab = isSpecial ? specialChoiceChoiceCanvas.ChoiceCardPrefab : choiceChoiceCanvas.ChoiceCardPrefab;
             var spawnRoot = isSpecial ? specialChoiceChoiceCanvas.ChoiceSpawnRoot : choiceChoiceCanvas.ChoiceSpawnRoot;
@@ -120,6 +122,7 @@ namespace ChoiceSystem
             var cloneCard = Instantiate(prefab,spawnRoot);
             cloneCard.Build(choiceData, isSpecial);
             _spawnedChoiceCardList.Add(cloneCard);
+            return cloneCard;
         }
 
         private void DisposeSpawnedChoiceCards()

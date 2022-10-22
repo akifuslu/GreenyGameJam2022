@@ -1,5 +1,8 @@
+using System.Collections.Generic;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace ChoiceSystem.CanvasScripts
 {
@@ -8,16 +11,25 @@ namespace ChoiceSystem.CanvasScripts
         [SerializeField] private ChoiceCardBase choiceCardPrefab;
         [SerializeField] private Transform choiceSpawnRoot;
         [SerializeField] private TextMeshProUGUI titleTextField;
-
+        [SerializeField] private Transform root;
+        [SerializeField] private Image backgroundImage;
+        
         public ChoiceCardBase ChoiceCardPrefab => choiceCardPrefab;
 
         public Transform ChoiceSpawnRoot => choiceSpawnRoot;
 
         public TextMeshProUGUI TitleTextField => titleTextField;
 
-        public virtual void Build()
+        public Transform Root => root;
+
+        public virtual void Build(List<ChoiceDataBase> choices, bool isSpecial)
         {
-            
+           
+            backgroundImage.CrossFadeAlpha(0f,0f,false);
+            backgroundImage.CrossFadeAlpha(1f, 1f, false);
+            Root.localScale = Vector3.zero;
+            Root.DOScale(Vector3.one, 0.2f).OnComplete(()=>ChoiceManager.Instance.SpawnChoices(choices,isSpecial));
+
         }
     }
 }
