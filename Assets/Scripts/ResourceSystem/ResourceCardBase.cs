@@ -1,3 +1,4 @@
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,6 +7,7 @@ namespace ResourceSystem
 {
     public class ResourceCardBase : MonoBehaviour
     {
+        [SerializeField] private Transform root;
         [SerializeField] private TextMeshProUGUI resourceNameTextField;
         [SerializeField] private TextMeshProUGUI resourceCountTextField;
         [SerializeField] private Image resourceImage;
@@ -37,6 +39,9 @@ namespace ResourceSystem
             resourceNameTextField.text = targetData.ResourceName;
             resourceImage.sprite = targetData.ResourceSprite;
             backgroundImage.color = targetData.BackgroundColor;
+            root.DOLocalMoveX(0, 0.5f).SetEase(Ease.OutBack);
+            root.transform.localScale = Vector3.zero;
+            root.DOScale(Vector3.one, 0.2f).SetEase(Ease.Linear);
             UpdateResourceCountText();
         }
 
