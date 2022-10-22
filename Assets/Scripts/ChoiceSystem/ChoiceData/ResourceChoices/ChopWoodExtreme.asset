@@ -18,7 +18,7 @@ MonoBehaviour:
   choiceActionDataList:
   - actionType: 1
     res: 0
-    value: 3
+    baseValue: 3
   - actionType: 2
     res: 0
-    value: 3
+    baseValue: 3

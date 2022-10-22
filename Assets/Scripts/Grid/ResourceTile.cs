@@ -79,6 +79,8 @@ namespace Grid
 
         public override void OnDayEnd()
         {
+            base.OnDayEnd();
+
             if(!_visited)
             {
                 _replenish.Value += 1;

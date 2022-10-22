@@ -10,7 +10,6 @@ namespace Grid
         public override void OnEnter()
         {
             base.OnEnter();
-
             MessageBus.Publish(new EndTileReachedEvent());
         }
     }

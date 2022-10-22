@@ -4,6 +4,8 @@ using Grid;
 using UnityEngine;
 using Utility;
 using UniRx;
+using Views;
+using DG.Tweening;
 
 namespace Models
 {
@@ -14,8 +16,11 @@ namespace Models
         private Tile _current;
         private Tile _start;
 
+        private Vector3 _sca;
+
         private void Awake()
         {
+            _sca = transform.localScale;
             _grid = FindObjectOfType<GridManager>();
         }
 
@@ -24,9 +29,16 @@ namespace Models
             _start = _current = _grid.GetStartingTile();
             OnNewTile();
 
-            MessageBus.OnEvent<EndTileReachedEvent>().Subscribe(ev =>
+            MessageBus.OnEvent<DayEndedEvent>().Subscribe(ev =>
             {
-                OnEndTile();
+                transform.localScale = Vector3.zero;
+            });
+
+            MessageBus.OnEvent<DayStartedEvent>().Subscribe(ev =>
+            {
+                transform.DOScale(_sca, .25f).SetEase(Ease.OutBack);
+                _current = _start;
+                OnNewTile();
             });
         }
 
@@ -34,18 +46,6 @@ namespace Models
         {
             transform.position = _current.transform.position;
             _current.OnEnter();
-
-            //if(_current.Type == TileType.END)
-            //{
-            //    OnEndTile();
-            //}
-        }
-
-        private void OnEndTile()
-        {
-            _grid.OnDayEnd();
-            _current = _start;
-            OnNewTile();
         }
 
         public void MoveTo(Tile target)

@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Utility;
+using Views;
+using UniRx;
+using DG.Tweening;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -67,16 +70,28 @@ namespace Grid
             return nei;
         }
 
-        public void OnDayEnd()
-        {
-            _tiles.ForEach(t => t.OnDayEnd());
-        }
-
         private void Awake()
         {
             if (Application.isPlaying)
             {
                 BuildTiles();
+
+                MessageBus.OnEvent<DayStartedEvent>().Subscribe(ev =>
+                {
+                    for (int i = 0; i < _tiles.Count; i++)
+                    {
+                        _tiles[i].Show(i * .1f, .25f);
+                    }
+                });
+
+                MessageBus.OnEvent<DayEndedEvent>().Subscribe(ev =>
+                {
+                    for (int i = 0; i < _tiles.Count; i++)
+                    {
+                        _tiles[i].Hide();
+                        _tiles[i].OnDayEnd();
+                    }
+                });
             }
         }
 
