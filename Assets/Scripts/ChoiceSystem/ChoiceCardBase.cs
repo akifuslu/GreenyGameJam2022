@@ -13,7 +13,7 @@ namespace ChoiceSystem
         [SerializeField] private TextMeshProUGUI descriptionTextField;
         
         public ChoiceDataBase MyData { get; private set; }
-        public void Build(ChoiceDataBase choiceData)
+        public void Build(ChoiceDataBase choiceData, bool isSpecial)
         {
             MyData = choiceData;
             cardButton.onClick.AddListener(TriggerChoice);

@@ -10,18 +10,15 @@ namespace ChoiceSystem
     public class ChoiceDataBase : ScriptableObject
     {
         [SerializeField] private Sprite choiceSprite;
-        [SerializeField][TextArea] private string choiceName;
-        [SerializeField][TextArea] private string description;
+        [SerializeField] private string choiceName;
         [SerializeField] private List<ChoiceActionData> choiceActionDataList;
         public Sprite ChoiceSprite => choiceSprite;
 
         public string ChoiceName => choiceName;
-
-        public string Description => description;
-
+        
         public List<ChoiceActionData> ChoiceActionDatas => choiceActionDataList;
 
-        public string GetDescription()
+        public virtual string GetDescription()
         {
             //return Description;
             string desc = "";

@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using ChoiceSystem.CanvasScripts;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using Utility;
@@ -12,15 +14,16 @@ namespace ChoiceSystem
         public static ChoiceManager Instance { get; set; }
 
         [Header("References")] 
-        [SerializeField] private ChoiceCardBase choiceCardPrefab;
-        [SerializeField] private RectTransform choiceSpawnRoot;
-        [SerializeField] private TextMeshProUGUI titleTextField;
+       
         [SerializeField] private List<ChoiceDataBase> allChoiceDataList;
-        [SerializeField] private Canvas choiceCanvas;
+        [SerializeField] private ChoiceCanvasBase choiceChoiceCanvas;
+        [SerializeField] private SpecialChoiceCanvas specialChoiceChoiceCanvas;
         
         private readonly List<ChoiceCardBase> _spawnedChoiceCardList = new List<ChoiceCardBase>();
 
         public Action OnChoiceSelectedAction;
+
+        private ChoiceCanvasBase _activeChoiceCanvas;
 
         private void Awake()
         {
@@ -40,6 +43,16 @@ namespace ChoiceSystem
             {
                 CloseChoiceCanvas();
             }
+            
+            if (Input.GetKeyDown(KeyCode.Z))
+            {
+                OpenSpecialChoiceCanvas(allChoiceDataList,"TTTTTT");
+            }
+
+            if (Input.GetKeyDown(KeyCode.X))
+            {
+                CloseChoiceCanvas();
+            }
 #endif
         }
 
@@ -53,43 +66,59 @@ namespace ChoiceSystem
         {
             if (!string.IsNullOrEmpty(title) && !string.IsNullOrWhiteSpace(title))
             {
-                titleTextField.gameObject.SetActive(true);
-                titleTextField.text = title;
+                choiceChoiceCanvas.TitleTextField.gameObject.SetActive(true);
+                choiceChoiceCanvas.TitleTextField.text = title;
             }
             else
-                titleTextField.gameObject.SetActive(false);
+                choiceChoiceCanvas.TitleTextField.gameObject.SetActive(false);
             
-            choiceCanvas.gameObject.SetActive(true);
-            SpawnChoices(choices);
+            choiceChoiceCanvas.gameObject.SetActive(true);
+            specialChoiceChoiceCanvas.gameObject.SetActive(false);
+            _activeChoiceCanvas = choiceChoiceCanvas;
+            SpawnChoices(choices,false);
+        }
+        
+        public void OpenSpecialChoiceCanvas(List<ChoiceDataBase> choices,string mainEventText, string title = "")
+        {
+            if (!string.IsNullOrEmpty(title) && !string.IsNullOrWhiteSpace(title))
+            {
+                specialChoiceChoiceCanvas.TitleTextField.gameObject.SetActive(true);
+                specialChoiceChoiceCanvas.TitleTextField.text = title;
+            }
+            else
+                specialChoiceChoiceCanvas.TitleTextField.gameObject.SetActive(false);
+            
+            choiceChoiceCanvas.gameObject.SetActive(false);
+            specialChoiceChoiceCanvas.gameObject.SetActive(true);
+            specialChoiceChoiceCanvas.SetMainEventText(mainEventText);
+            _activeChoiceCanvas = specialChoiceChoiceCanvas;
+            SpawnChoices(choices,true);
         }
 
         public void CloseChoiceCanvas()
         {
-            choiceCanvas.gameObject.SetActive(false);
+            if (_activeChoiceCanvas)
+                _activeChoiceCanvas.gameObject.SetActive(false);  
         }
 
-        public void SpawnChoices(List<ChoiceDataBase> possibleChoiceList,int spawnCount = 3)
+        public void SpawnChoices(List<ChoiceDataBase> possibleChoiceList,bool isSpecial,int spawnCount = 3)
         {
             DisposeSpawnedChoiceCards();
-            //var tempList = possibleChoiceList.ToList();
-            //for (int i = 0; i < spawnCount; i++)
-            //{
-            //    var randomChoice = tempList.RandomItem();
-            //    if (!randomChoice) continue;
-
-            //    SpawnChoice(randomChoice);
-            //    tempList.Remove(randomChoice);
-            //}
+            
+            
             for (int i = 0; i < possibleChoiceList.Count; i++)
             {
-                SpawnChoice(possibleChoiceList[i]);
+                SpawnChoice(possibleChoiceList[i], isSpecial);
             }
         }
 
-        private void SpawnChoice(ChoiceDataBase choiceData)
+        private void SpawnChoice(ChoiceDataBase choiceData,bool isSpecial)
         {
-            var cloneCard = Instantiate(choiceCardPrefab, choiceSpawnRoot);
-            cloneCard.Build(choiceData);
+            var prefab = isSpecial ? specialChoiceChoiceCanvas.ChoiceCardPrefab : choiceChoiceCanvas.ChoiceCardPrefab;
+            var spawnRoot = isSpecial ? specialChoiceChoiceCanvas.ChoiceSpawnRoot : choiceChoiceCanvas.ChoiceSpawnRoot;
+            
+            var cloneCard = Instantiate(prefab,spawnRoot);
+            cloneCard.Build(choiceData, isSpecial);
             _spawnedChoiceCardList.Add(cloneCard);
         }
 
