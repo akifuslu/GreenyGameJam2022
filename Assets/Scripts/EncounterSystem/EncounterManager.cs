@@ -34,7 +34,7 @@ namespace EncounterSystem
             foreach (var choiceData in choices)
                 tList.Add(choiceData);
             
-            ChoiceManager.Instance.OpenSpecialChoiceCanvas(tList,targetData.EncounterDescription,targetData.EncounterTitle);
+            ChoiceManager.Instance.OpenSpecialChoiceCanvas(tList,targetData.EncounterDescription,targetData.EncounterSprite,targetData.EncounterTitle);
         }
 
         public void TriggerRandomEncounter()

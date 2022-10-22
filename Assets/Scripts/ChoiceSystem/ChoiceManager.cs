@@ -47,7 +47,7 @@ namespace ChoiceSystem
             
             if (Input.GetKeyDown(KeyCode.Z))
             {
-                OpenSpecialChoiceCanvas(allChoiceDataList,"TTTTTT");
+                OpenSpecialChoiceCanvas(allChoiceDataList,"TTTTTT",null);
             }
 
             if (Input.GetKeyDown(KeyCode.X))
@@ -84,7 +84,7 @@ namespace ChoiceSystem
             _activeChoiceCanvas.Build(choices,false);
         }
         
-        public void OpenSpecialChoiceCanvas(List<ChoiceDataBase> choices,string mainEventText, string title = "")
+        public void OpenSpecialChoiceCanvas(List<ChoiceDataBase> choices,string mainEventText,Sprite targetSprite, string title = "")
         {
             if (!string.IsNullOrEmpty(title) && !string.IsNullOrWhiteSpace(title))
             {
@@ -97,6 +97,7 @@ namespace ChoiceSystem
             choiceChoiceCanvas.gameObject.SetActive(false);
             specialChoiceChoiceCanvas.gameObject.SetActive(true);
             specialChoiceChoiceCanvas.SetMainEventText(mainEventText);
+            specialChoiceChoiceCanvas.SetImage(targetSprite);
             _activeChoiceCanvas = specialChoiceChoiceCanvas;
             DisposeSpawnedChoiceCards();
             _activeChoiceCanvas.NoChoiceButton.gameObject.SetActive(false);
@@ -116,8 +117,15 @@ namespace ChoiceSystem
             DisposeSpawnedChoiceCards();
             if (isSpecial)
             {
+                var t = specialChoiceChoiceCanvas.ChoiceSpawnRoot.GetComponentsInChildren<ChoiceCardBase>().ToList();
+                foreach (var cardBase in t)
+                    Destroy(cardBase.gameObject);
                 MessageBus.OnEvent<SpecialChoiceDescriptionFinishedEvent>().Take(1).Subscribe(ev =>
                 {
+                    DisposeSpawnedChoiceCards();
+                    var t = specialChoiceChoiceCanvas.ChoiceSpawnRoot.GetComponentsInChildren<ChoiceCardBase>().ToList();
+                    foreach (var cardBase in t)
+                        Destroy(cardBase.gameObject);
                     PrepareSpawn(possibleChoiceList, true);
                 });
             }
@@ -129,6 +137,7 @@ namespace ChoiceSystem
 
         private void PrepareSpawn(List<ChoiceDataBase> possibleChoiceList, bool isSpecial)
         {
+            DisposeSpawnedChoiceCards();
             for (int i = 0; i < possibleChoiceList.Count; i++)
             {
                 SpawnChoice(possibleChoiceList[i], isSpecial, i);

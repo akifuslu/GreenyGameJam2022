@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using ResourceSystem;
 
 namespace ChoiceSystem.ChoiceActions
@@ -13,8 +14,17 @@ namespace ChoiceSystem.ChoiceActions
                 ResourceManager.Instance.DecreaseResource(electedResource.MyData.ResourceType, electedResource.TotalAmount);
                 return;
             }
+
+            List<ResourceCardBase> _tList = new List<ResourceCardBase>();
+
             foreach (var resourceCardBase in ResourceManager.Instance.SpawnedResourceCardDict)
-                ResourceManager.Instance.DecreaseResource(resourceCardBase.Key, resourceCardBase.Value.TotalAmount);
+            {
+                if (resourceCardBase.Value)
+                    _tList.Add(resourceCardBase.Value);
+            }
+            
+            foreach (var resourceCardBase in _tList)
+                ResourceManager.Instance.DecreaseResource(resourceCardBase.MyData.ResourceType, resourceCardBase.TotalAmount);
             
         }
     }

@@ -8,6 +8,7 @@ namespace EncounterSystem
     public class EncounterData : ScriptableObject
     {
         [SerializeField] private string encounterTitle;
+        [SerializeField] private Sprite encounterSprite;
         [SerializeField][TextArea] private string encounterDescription;
         [SerializeField] private List<SpecialChoiceData> encounterChoiceDataList;
 
@@ -17,5 +18,7 @@ namespace EncounterSystem
         public string EncounterDescription => encounterDescription;
 
         public List<SpecialChoiceData> EncounterChoiceDataList => encounterChoiceDataList;
+
+        public Sprite EncounterSprite => encounterSprite;
     }
 }

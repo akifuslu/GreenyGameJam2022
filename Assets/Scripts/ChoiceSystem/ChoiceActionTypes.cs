@@ -6,6 +6,8 @@ namespace ChoiceSystem
         GatherResource,
         ReduceReplenish,
         SpendResource,
-        GiveAll
+        GiveAll,
+        InstantGainResource,
+        InstantSpendResource
     }
 }
