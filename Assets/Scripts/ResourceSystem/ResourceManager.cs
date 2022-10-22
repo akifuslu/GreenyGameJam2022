@@ -222,7 +222,5 @@ namespace ResourceSystem
             return ResourceDict[targetType];
         }
         #endregion
-       
-        
     }
 }

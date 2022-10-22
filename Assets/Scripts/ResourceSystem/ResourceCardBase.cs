@@ -8,6 +8,7 @@ namespace ResourceSystem
     public class ResourceCardBase : MonoBehaviour
     {
         [SerializeField] private Transform root;
+        [SerializeField] private Transform shakeRoot;
         [SerializeField] private TextMeshProUGUI resourceNameTextField;
         [SerializeField] private TextMeshProUGUI resourceCountTextField;
         [SerializeField] private Image resourceImage;
@@ -19,19 +20,41 @@ namespace ResourceSystem
 
         public TextMeshProUGUI ResourceCountTextField => resourceCountTextField;
 
+        private Tween _shakeTween;
         public virtual void IncreaseAmount(int amount)
         {
+            if (TotalAmount>0)
+                Shake();
             TotalAmount += amount;
             UpdateResourceCountText();
         }
 
+        private void Shake()
+        {
+            if (_shakeTween != null)
+                _shakeTween.Kill();
+            
+            _shakeTween = shakeRoot.DOPunchScale(Vector3.one *0.2f,0.5f,2,0.1f).OnComplete(() =>
+            {
+                _shakeTween = null;
+                shakeRoot.localScale = Vector3.one;
+            }).OnKill(() =>
+                {
+                    _shakeTween = null;
+                    shakeRoot.localScale = Vector3.one;
+                });
+        }
+
         public virtual void DecreaseAmount(int amount)
         {
+            if (TotalAmount>0)
+                Shake();
             TotalAmount -= amount;
             if (TotalAmount<0)
-            {
                 TotalAmount = 0;
-            }
+
+           
+            
             UpdateResourceCountText();
         }
         
