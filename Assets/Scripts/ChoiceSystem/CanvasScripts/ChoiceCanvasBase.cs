@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using DG.Tweening;
 using TMPro;
@@ -13,6 +14,7 @@ namespace ChoiceSystem.CanvasScripts
         [SerializeField] private TextMeshProUGUI titleTextField;
         [SerializeField] private Transform root;
         [SerializeField] private Image backgroundImage;
+        [SerializeField] private Button noChoiceButton;
         
         public ChoiceCardBase ChoiceCardPrefab => choiceCardPrefab;
 
@@ -22,9 +24,16 @@ namespace ChoiceSystem.CanvasScripts
 
         public Transform Root => root;
 
+        public Button NoChoiceButton => noChoiceButton;
+
+        private void Awake()
+        {
+            NoChoiceButton.onClick.AddListener(OnClosed);
+        }
+
         public virtual void Build(List<ChoiceDataBase> choices, bool isSpecial)
         {
-           
+            
             backgroundImage.CrossFadeAlpha(0f,0f,false);
             backgroundImage.CrossFadeAlpha(1f, 1f, false);
             Root.localScale = Vector3.zero;
@@ -34,7 +43,7 @@ namespace ChoiceSystem.CanvasScripts
 
         public virtual void OnClosed()
         {
-            
+            gameObject.SetActive(false);  
         }
     }
 }

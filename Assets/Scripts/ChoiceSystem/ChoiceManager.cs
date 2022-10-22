@@ -79,6 +79,7 @@ namespace ChoiceSystem
             specialChoiceChoiceCanvas.gameObject.SetActive(false);
             _activeChoiceCanvas = choiceChoiceCanvas;
             DisposeSpawnedChoiceCards();
+            _activeChoiceCanvas.NoChoiceButton.gameObject.SetActive(false);
             _activeChoiceCanvas.Build(choices,false);
         }
         
@@ -97,6 +98,7 @@ namespace ChoiceSystem
             specialChoiceChoiceCanvas.SetMainEventText(mainEventText);
             _activeChoiceCanvas = specialChoiceChoiceCanvas;
             DisposeSpawnedChoiceCards();
+            _activeChoiceCanvas.NoChoiceButton.gameObject.SetActive(false);
             _activeChoiceCanvas.Build(choices,true);
         }
 
@@ -105,7 +107,6 @@ namespace ChoiceSystem
             if (_activeChoiceCanvas)
             {
                 _activeChoiceCanvas.OnClosed();
-                _activeChoiceCanvas.gameObject.SetActive(false);  
             }
         }
 
@@ -115,6 +116,18 @@ namespace ChoiceSystem
             for (int i = 0; i < possibleChoiceList.Count; i++)
             {
                 SpawnChoice(possibleChoiceList[i], isSpecial,i);
+            }
+
+            if (_activeChoiceCanvas)
+            {
+                var hasNoOption =_spawnedChoiceCardList.All(x => !x.CardButton.interactable);
+                if (hasNoOption)
+                {
+                    _activeChoiceCanvas.NoChoiceButton.gameObject.SetActive(true);
+                    _activeChoiceCanvas.NoChoiceButton.transform.localScale = Vector3.zero;
+                    _activeChoiceCanvas.NoChoiceButton.transform.DOScale(Vector3.one, 0.2f).SetEase(Ease.OutBack)
+                        .SetDelay(0.5f);
+                }
             }
         }
 

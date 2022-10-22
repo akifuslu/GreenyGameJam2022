@@ -19,8 +19,8 @@ namespace ChoiceSystem.CanvasScripts
 
         public override void OnClosed()
         {
-            base.OnClosed();
             if(_textDisplayTween != null) _textDisplayTween.Kill();
+            base.OnClosed();
         }
     }
 }

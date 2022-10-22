@@ -16,11 +16,14 @@ namespace ChoiceSystem
         [SerializeField] private TextMeshProUGUI descriptionTextField;
         
         public ChoiceDataBase MyData { get; private set; }
+
+        public Button CardButton => cardButton;
+
         public void Build(ChoiceDataBase choiceData, bool isSpecial, int spawnIndex)
         {
             MyData = choiceData;
-            cardButton.interactable = choiceData.GetAvailability();
-            cardButton.onClick.AddListener(TriggerChoice);
+            CardButton.interactable = choiceData.GetAvailability();
+            CardButton.onClick.AddListener(TriggerChoice);
             choiceImage.sprite = choiceData.ChoiceSprite;
             nameTextField.text = choiceData.ChoiceName;
 
