@@ -612,7 +612,7 @@ MonoBehaviour:
   _outline: {fileID: 6162591226713790203}
   Resource: 2
   MaxResourceAmount: 3
-  MaxReplenish: 3
+  MaxReplenish: 0
   Choices:
   - {fileID: 11400000, guid: e004ec352b352c34389ccdbb05de8c7e, type: 2}
   - {fileID: 11400000, guid: 1693493f3ac565748b0cd772618fc3de, type: 2}
