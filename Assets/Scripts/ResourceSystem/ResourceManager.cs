@@ -59,7 +59,7 @@ namespace ResourceSystem
             DecreaseResource(targetData.ResourceType,amount);
         }
 
-        private void IncreaseResource(GameResourceTypes targetType, int amount)
+        public void IncreaseResource(GameResourceTypes targetType, int amount)
         {
             var resourceData = GetResourceData(targetType);
             ResourceCardBase card = null;

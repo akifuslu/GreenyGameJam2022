@@ -12,7 +12,7 @@ namespace Grid
         private List<Tile> _nei;
 
 
-        public void Init(List<Tile> nei)
+        public virtual void Init(List<Tile> nei)
         {
             _nei = nei;
         }
@@ -34,6 +34,10 @@ namespace Grid
             _nei.ForEach(n => n.SetOutline(Color.white));
         }
 
+        public virtual void OnDayEnd()
+        {
+            SetOutline(Color.white);
+        }
 
         public void SetOutline(Color color)
         {

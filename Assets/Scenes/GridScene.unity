@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TileSlot
       objectReference: {fileID: 0}
+    - target: {fileID: 5087943342163210377, guid: 46b8a392bd295480f927eda4b2ee374f, type: 3}
+      propertyPath: Type
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6328100176266083540, guid: 46b8a392bd295480f927eda4b2ee374f, type: 3}
       propertyPath: m_RootOrder
       value: 12
@@ -2632,6 +2636,120 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6328100176266083540, guid: 46b8a392bd295480f927eda4b2ee374f, type: 3}
   m_PrefabInstance: {fileID: 1176814431}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1193395724
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6833438871574841227, guid: 424b801a2cf89d447af3b55574fed2b6, type: 3}
+      propertyPath: m_Name
+      value: ChoiceManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 6833438871574841269, guid: 424b801a2cf89d447af3b55574fed2b6, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6833438871574841269, guid: 424b801a2cf89d447af3b55574fed2b6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6833438871574841269, guid: 424b801a2cf89d447af3b55574fed2b6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6833438871574841269, guid: 424b801a2cf89d447af3b55574fed2b6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6833438871574841269, guid: 424b801a2cf89d447af3b55574fed2b6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6833438871574841269, guid: 424b801a2cf89d447af3b55574fed2b6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6833438871574841269, guid: 424b801a2cf89d447af3b55574fed2b6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6833438871574841269, guid: 424b801a2cf89d447af3b55574fed2b6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6833438871574841269, guid: 424b801a2cf89d447af3b55574fed2b6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6833438871574841269, guid: 424b801a2cf89d447af3b55574fed2b6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6833438871574841269, guid: 424b801a2cf89d447af3b55574fed2b6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 424b801a2cf89d447af3b55574fed2b6, type: 3}
+--- !u!1001 &1211408412
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 717040473726730797, guid: 77a7626b206aab449a3a8e2bb5afd44e, type: 3}
+      propertyPath: m_Name
+      value: ResourceManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 717040473726730799, guid: 77a7626b206aab449a3a8e2bb5afd44e, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 717040473726730799, guid: 77a7626b206aab449a3a8e2bb5afd44e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 717040473726730799, guid: 77a7626b206aab449a3a8e2bb5afd44e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 717040473726730799, guid: 77a7626b206aab449a3a8e2bb5afd44e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 717040473726730799, guid: 77a7626b206aab449a3a8e2bb5afd44e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 717040473726730799, guid: 77a7626b206aab449a3a8e2bb5afd44e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 717040473726730799, guid: 77a7626b206aab449a3a8e2bb5afd44e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 717040473726730799, guid: 77a7626b206aab449a3a8e2bb5afd44e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 717040473726730799, guid: 77a7626b206aab449a3a8e2bb5afd44e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 717040473726730799, guid: 77a7626b206aab449a3a8e2bb5afd44e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 717040473726730799, guid: 77a7626b206aab449a3a8e2bb5afd44e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 77a7626b206aab449a3a8e2bb5afd44e, type: 3}
 --- !u!1001 &1233400645
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2716,6 +2834,10 @@ PrefabInstance:
     - target: {fileID: 1397806929969331218, guid: 46b8a392bd295480f927eda4b2ee374f, type: 3}
       propertyPath: m_Name
       value: TileSlot
+      objectReference: {fileID: 0}
+    - target: {fileID: 5087943342163210377, guid: 46b8a392bd295480f927eda4b2ee374f, type: 3}
+      propertyPath: Type
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6328100176266083540, guid: 46b8a392bd295480f927eda4b2ee374f, type: 3}
       propertyPath: m_RootOrder
@@ -4701,6 +4823,8 @@ MonoBehaviour:
       Value: {fileID: 4955377116440692741, guid: 3c0b5182c91ee4fed94f60f436c88c8e, type: 3}
     - Key: 3
       Value: {fileID: 224300233070583281, guid: 3001ed5a93e72443491be2bb01e36d51, type: 3}
+    - Key: 4
+      Value: {fileID: -356474459292075392, guid: 843d596c4798b4f8085133dd8502fc4d, type: 3}
   _tileSlotPrefab: {fileID: 5087943342163210377, guid: 46b8a392bd295480f927eda4b2ee374f, type: 3}
   _center: {x: -1.29, y: 0.82}
   _countX: 5

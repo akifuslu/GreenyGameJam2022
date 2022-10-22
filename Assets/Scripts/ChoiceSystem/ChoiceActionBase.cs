@@ -1,12 +1,19 @@
+using Grid;
+using ResourceSystem;
+
 namespace ChoiceSystem
 {
     public class CardActionParameters
     {
-        public readonly float Value;
+        public readonly int Value;
+        public readonly GameResourceTypes Res;
+        public readonly ResourceTile Tile;
       
-        public CardActionParameters(float value)
+        public CardActionParameters(int value, GameResourceTypes res, ResourceTile tile)
         {
             Value = value;
+            Res = res;
+            Tile = tile;
         }
     }
     public abstract class ChoiceActionBase

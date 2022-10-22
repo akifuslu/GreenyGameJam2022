@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Grid;
 using Models;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Control
 {
@@ -18,7 +19,7 @@ namespace Control
 
         private void Update()
         {
-            if(Input.GetMouseButtonDown(0))
+            if(Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
             {
                 OnClick();
             }

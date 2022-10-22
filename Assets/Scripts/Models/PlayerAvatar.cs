@@ -43,7 +43,7 @@ namespace Models
 
         private void OnEndTile()
         {
-            _grid.Clear();
+            _grid.OnDayEnd();
             _current = _start;
             OnNewTile();
         }

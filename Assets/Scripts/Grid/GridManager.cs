@@ -67,9 +67,9 @@ namespace Grid
             return nei;
         }
 
-        public void Clear()
+        public void OnDayEnd()
         {
-            _tiles.ForEach(t => t.SetOutline(Color.white));
+            _tiles.ForEach(t => t.OnDayEnd());
         }
 
         private void Awake()

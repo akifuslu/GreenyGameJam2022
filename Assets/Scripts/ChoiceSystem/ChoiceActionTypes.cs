@@ -2,6 +2,8 @@ namespace ChoiceSystem
 {
     public enum ChoiceActionTypes
     {
-        Example
+        Example,
+        GatherResource,
+        ReduceReplenish
     }
 }

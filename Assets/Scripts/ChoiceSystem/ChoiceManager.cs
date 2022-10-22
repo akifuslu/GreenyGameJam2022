@@ -33,7 +33,7 @@ namespace ChoiceSystem
 #if UNITY_EDITOR
             if (Input.GetKeyDown(KeyCode.Q))
             {
-                OpenChoiceCanvas();
+                OpenChoiceCanvas(allChoiceDataList);
             }
 
             if (Input.GetKeyDown(KeyCode.W))
@@ -49,7 +49,7 @@ namespace ChoiceSystem
             CloseChoiceCanvas();
             OnChoiceSelectedAction?.Invoke();
         }
-        public void OpenChoiceCanvas(string title = "")
+        public void OpenChoiceCanvas(List<ChoiceDataBase> choices, string title = "")
         {
             if (!string.IsNullOrEmpty(title) && !string.IsNullOrWhiteSpace(title))
             {
@@ -60,7 +60,7 @@ namespace ChoiceSystem
                 titleTextField.gameObject.SetActive(false);
             
             choiceCanvas.gameObject.SetActive(true);
-            SpawnChoices(allChoiceDataList);
+            SpawnChoices(choices);
         }
 
         public void CloseChoiceCanvas()
@@ -71,14 +71,18 @@ namespace ChoiceSystem
         public void SpawnChoices(List<ChoiceDataBase> possibleChoiceList,int spawnCount = 3)
         {
             DisposeSpawnedChoiceCards();
-            var tempList = possibleChoiceList.ToList();
-            for (int i = 0; i < spawnCount; i++)
+            //var tempList = possibleChoiceList.ToList();
+            //for (int i = 0; i < spawnCount; i++)
+            //{
+            //    var randomChoice = tempList.RandomItem();
+            //    if (!randomChoice) continue;
+
+            //    SpawnChoice(randomChoice);
+            //    tempList.Remove(randomChoice);
+            //}
+            for (int i = 0; i < possibleChoiceList.Count; i++)
             {
-                var randomChoice = tempList.RandomItem();
-                if (!randomChoice) continue;
-                
-                SpawnChoice(randomChoice);
-                tempList.Remove(randomChoice);
+                SpawnChoice(possibleChoiceList[i]);
             }
         }
 
