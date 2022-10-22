@@ -1,10 +1,7 @@
-using System.Text;
-using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using Utility;
 
 namespace ChoiceSystem
 {
@@ -16,31 +13,14 @@ namespace ChoiceSystem
         [SerializeField] private TextMeshProUGUI descriptionTextField;
         
         public ChoiceDataBase MyData { get; private set; }
-        public int SpawnIndex { get; private set; }
-        public void Build(ChoiceDataBase choiceData, bool isSpecial,int spawnIndex)
+        public void Build(ChoiceDataBase choiceData)
         {
             MyData = choiceData;
-            SpawnIndex = spawnIndex;
+            cardButton.interactable = choiceData.GetAvailability();
             cardButton.onClick.AddListener(TriggerChoice);
             choiceImage.sprite = choiceData.ChoiceSprite;
             nameTextField.text = choiceData.ChoiceName;
-            
-            var str = new StringBuilder();
-            if (isSpecial)
-                str.Append(spawnIndex +1).Append(". ");
-            
-            str.Append(choiceData.GetDescription());
-            descriptionTextField.text = str.ToString();
-            
-            PlayFx(isSpecial, spawnIndex);
-        }
-
-        private void PlayFx(bool isSpecial, int spawnIndex)
-        {
-            transform.localScale = Vector3.zero;
-            transform.DOScale(Vector3.one, 0.2f).SetEase(Ease.OutBack).SetDelay(0.1f * (spawnIndex + 1));
-            if (isSpecial)
-                TextHelper.PlayingText(descriptionTextField, 20f, 0.2f * (spawnIndex + 1));
+            descriptionTextField.text = choiceData.GetDescription();
         }
 
         public void TriggerChoice()

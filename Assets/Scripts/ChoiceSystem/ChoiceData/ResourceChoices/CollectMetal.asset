@@ -10,15 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 350647e4f2bb4b5ba6d86121cd4f4ee5, type: 3}
-  m_Name: ChopWoodExtreme
+  m_Name: CollectMetal
   m_EditorClassIdentifier: 
   choiceSprite: {fileID: 0}
-  choiceName: Extremely Chop Wood
+  choiceName: Collect Metal
   description: 
   choiceActionDataList:
   - actionType: 1
-    res: 0
-    baseValue: 3
-  - actionType: 2
-    res: 0
-    baseValue: 3
+    res: 4
+    baseValue: 1
+  - actionType: 3
+    res: 5
+    baseValue: 1
+  - actionType: 3
+    res: 1
+    baseValue: 1

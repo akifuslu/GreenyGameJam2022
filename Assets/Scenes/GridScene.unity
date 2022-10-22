@@ -136,7 +136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5087943342163210377, guid: 46b8a392bd295480f927eda4b2ee374f, type: 3}
       propertyPath: Type
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6328100176266083540, guid: 46b8a392bd295480f927eda4b2ee374f, type: 3}
       propertyPath: m_RootOrder
@@ -2913,7 +2913,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5087943342163210377, guid: 46b8a392bd295480f927eda4b2ee374f, type: 3}
       propertyPath: Type
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6328100176266083540, guid: 46b8a392bd295480f927eda4b2ee374f, type: 3}
       propertyPath: m_RootOrder
@@ -4903,6 +4903,16 @@ MonoBehaviour:
       Value: {fileID: 224300233070583281, guid: 3001ed5a93e72443491be2bb01e36d51, type: 3}
     - Key: 4
       Value: {fileID: -356474459292075392, guid: 843d596c4798b4f8085133dd8502fc4d, type: 3}
+    - Key: 5
+      Value: {fileID: -356474459292075392, guid: aae39e34601e04aaaa6220d86a8a8ce3, type: 3}
+    - Key: 6
+      Value: {fileID: -356474459292075392, guid: 46fd6918365ac49ac8f6b88af921320e, type: 3}
+    - Key: 7
+      Value: {fileID: -356474459292075392, guid: b6b9a05c205d841d38ef25cc77ded0f2, type: 3}
+    - Key: 8
+      Value: {fileID: -356474459292075392, guid: 096facc7f5d77452b85bd0e3fad7c275, type: 3}
+    - Key: 9
+      Value: {fileID: -356474459292075392, guid: 5c946ad12185743d1b46783ad12ae70c, type: 3}
   _tileSlotPrefab: {fileID: 5087943342163210377, guid: 46b8a392bd295480f927eda4b2ee374f, type: 3}
   _center: {x: -1.29, y: 0.82}
   _countX: 5

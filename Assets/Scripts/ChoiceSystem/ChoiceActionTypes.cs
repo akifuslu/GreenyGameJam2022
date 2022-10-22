@@ -4,6 +4,7 @@ namespace ChoiceSystem
     {
         Example,
         GatherResource,
-        ReduceReplenish
+        ReduceReplenish,
+        SpendResource
     }
 }

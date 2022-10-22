@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Grid;
 using ResourceSystem;
 using UnityEngine;
+using System.Linq;
 
 namespace ChoiceSystem
 {
@@ -28,6 +29,20 @@ namespace ChoiceSystem
             }
 
             return desc;
+        }
+
+        public bool GetAvailability()
+        {
+            var spends = choiceActionDataList.Where(c => c.ActionType == ChoiceActionTypes.SpendResource);
+            foreach (var spend in spends)
+            {
+                if (ResourceManager.Instance.GetResourceValue(spend.Res) < spend.BaseValue)
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
 
         public void TriggerChoiceAction()
@@ -93,7 +108,7 @@ namespace ChoiceSystem
         {
             actionType = other.actionType;
             res = other.res;
-            value = other.value;
+            value = other.baseValue;
             baseValue = other.baseValue;
         }
 
@@ -107,6 +122,8 @@ namespace ChoiceSystem
                     return "+" + value + " " + res.ToString();
                 case ChoiceActionTypes.ReduceReplenish:
                     return "-" + value + " Replenish";
+                case ChoiceActionTypes.SpendResource:
+                    return "-" + value + " " + res.ToString();
                 default:
                     break;
             }

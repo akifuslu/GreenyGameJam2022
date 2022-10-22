@@ -107,6 +107,11 @@ namespace Grid
                     continue;
                 }
 
+                if(_tileSlots[i].Type == TileType.DEFAULT)
+                {
+                    _tileSlots[i].Type = (TileType)Random.Range(4, 10);
+                }
+
                 var t = Instantiate(_tileMapping[_tileSlots[i].Type], transform);
                 t.transform.position = _tileSlots[i].transform.position;
                 t.transform.localScale = Vector3.one * _tileRadius * 2 - Vector3.one * _padding;
