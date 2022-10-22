@@ -33,14 +33,13 @@ namespace ChoiceSystem.CanvasScripts
 
         public virtual void Build(List<ChoiceDataBase> choices, bool isSpecial)
         {
-            
             backgroundImage.CrossFadeAlpha(0f,0f,false);
             backgroundImage.CrossFadeAlpha(1f, 1f, false);
             Root.localScale = Vector3.zero;
             Root.DOScale(Vector3.one, 0.2f).OnComplete(()=>ChoiceManager.Instance.SpawnChoices(choices,isSpecial));
 
         }
-
+        
         public virtual void OnClosed()
         {
             gameObject.SetActive(false);  
