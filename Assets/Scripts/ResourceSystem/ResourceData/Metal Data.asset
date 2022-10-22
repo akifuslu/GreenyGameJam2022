@@ -18,4 +18,4 @@ MonoBehaviour:
   backgroundColor: {r: 0.5644283, g: 0.33490565, b: 1, a: 1}
   collectValue: 5
   excludeStock: 0
-  stockGoalValue: 25
+  stockGoalValue: 10
