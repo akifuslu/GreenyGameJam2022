@@ -54,6 +54,9 @@ namespace ChoiceSystem
                 CloseChoiceCanvas();
             }
 #endif
+
+            if (Input.GetMouseButtonDown(0))
+                MessageBus.Publish(new OnMouseButtonDownEvent());
         }
 
         public void OnChoiceSelected()
@@ -100,7 +103,10 @@ namespace ChoiceSystem
         public void CloseChoiceCanvas()
         {
             if (_activeChoiceCanvas)
+            {
+                _activeChoiceCanvas.OnClosed();
                 _activeChoiceCanvas.gameObject.SetActive(false);  
+            }
         }
 
         public void SpawnChoices(List<ChoiceDataBase> possibleChoiceList,bool isSpecial,int spawnCount = 3)
@@ -108,19 +114,17 @@ namespace ChoiceSystem
             DisposeSpawnedChoiceCards();
             for (int i = 0; i < possibleChoiceList.Count; i++)
             {
-                var card =SpawnChoice(possibleChoiceList[i], isSpecial);
-                card.transform.localScale = Vector3.zero;
-                card.transform.DOScale(Vector3.one, 0.2f).SetEase(Ease.OutBack).SetDelay(0.1f * (i+1));
+                SpawnChoice(possibleChoiceList[i], isSpecial,i);
             }
         }
 
-        private ChoiceCardBase SpawnChoice(ChoiceDataBase choiceData,bool isSpecial)
+        private ChoiceCardBase SpawnChoice(ChoiceDataBase choiceData,bool isSpecial, int index)
         {
             var prefab = isSpecial ? specialChoiceChoiceCanvas.ChoiceCardPrefab : choiceChoiceCanvas.ChoiceCardPrefab;
             var spawnRoot = isSpecial ? specialChoiceChoiceCanvas.ChoiceSpawnRoot : choiceChoiceCanvas.ChoiceSpawnRoot;
             
             var cloneCard = Instantiate(prefab,spawnRoot);
-            cloneCard.Build(choiceData, isSpecial);
+            cloneCard.Build(choiceData, isSpecial,index);
             _spawnedChoiceCardList.Add(cloneCard);
             return cloneCard;
         }
@@ -131,5 +135,9 @@ namespace ChoiceSystem
                 Destroy(cardBase.gameObject);
             _spawnedChoiceCardList?.Clear();
         }
+        
+        
     }
+    
+    public class OnMouseButtonDownEvent : GameEvent { }
 }

@@ -31,5 +31,10 @@ namespace ChoiceSystem.CanvasScripts
             Root.DOScale(Vector3.one, 0.2f).OnComplete(()=>ChoiceManager.Instance.SpawnChoices(choices,isSpecial));
 
         }
+
+        public virtual void OnClosed()
+        {
+            
+        }
     }
 }
