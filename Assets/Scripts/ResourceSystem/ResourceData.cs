@@ -10,9 +10,10 @@ namespace ResourceSystem
         [SerializeField] private string resourceName;
         [SerializeField] private Sprite resourceSprite;
         [SerializeField] private Color backgroundColor;
+        [SerializeField] private int collectValue;
         [SerializeField] private bool excludeStock;
         [SerializeField] private int stockGoalValue;
-        
+
         public string ResourceName => resourceName;
 
         public Sprite ResourceSprite => resourceSprite;
@@ -24,5 +25,7 @@ namespace ResourceSystem
         public bool ExcludeStock => excludeStock;
 
         public int StockGoalValue => stockGoalValue;
+
+        public int CollectValue => collectValue;
     }
 }

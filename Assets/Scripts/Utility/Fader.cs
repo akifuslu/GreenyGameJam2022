@@ -38,7 +38,7 @@ namespace Utility
                 SceneManager.LoadScene(targetSceneIndex);
                 
                 _fadeTween = fadeImage.DOFade(0f, 0.5f).OnComplete(()=>_fadeTween = null);
-            });;
+            });
         }
     }
 }

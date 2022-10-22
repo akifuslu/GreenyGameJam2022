@@ -16,5 +16,6 @@ MonoBehaviour:
   resourceName: Metal
   resourceSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   backgroundColor: {r: 0.5644283, g: 0.33490565, b: 1, a: 1}
+  collectValue: 5
   excludeStock: 0
   stockGoalValue: 25

@@ -16,5 +16,6 @@ MonoBehaviour:
   resourceName: Water
   resourceSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   backgroundColor: {r: 1, g: 0.33490565, b: 0.9243617, a: 1}
+  collectValue: 1
   excludeStock: 0
   stockGoalValue: 25

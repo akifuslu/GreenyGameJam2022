@@ -31,5 +31,22 @@ namespace Utility
             
             return t;
         }
+
+        public static Tweener PlayCounter(TextMeshProUGUI textField,int targetValue,int startValue =0,string prefix = "",float duration = 1f, float startDelay =0f)
+        {
+            var t = DOTween
+                .To(value => { textField.text = prefix+Mathf.RoundToInt(value).ToString(); }, startValue, targetValue,
+                    duration).SetDelay(startDelay).SetEase(Ease.Linear)
+                .OnComplete(() => { textField.text =  prefix+targetValue.ToString(); })
+                .OnKill(() => { textField.text =  prefix+targetValue.ToString(); });
+            MessageBus.OnEvent<OnMouseButtonDownEvent>().Take(1).Subscribe(ev =>
+            {
+                if (t != null)
+                    t.Kill();
+            });
+            return t;
+        }
     }
+    
+   
 }

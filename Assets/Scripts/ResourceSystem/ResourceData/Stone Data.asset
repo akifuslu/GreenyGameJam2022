@@ -16,5 +16,6 @@ MonoBehaviour:
   resourceName: Stone
   resourceSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   backgroundColor: {r: 0.7865162, g: 0.48551118, b: 0.58926547, a: 1.0002611}
+  collectValue: 1
   excludeStock: 1
   stockGoalValue: 25
