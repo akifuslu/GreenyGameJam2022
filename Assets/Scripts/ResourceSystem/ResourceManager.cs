@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using ChoiceSystem;
+using Grid;
+using UniRx;
 using UnityEngine;
 using Utility;
 
@@ -28,6 +30,10 @@ namespace ResourceSystem
         {
             Instance = this;
             Init();
+            MessageBus.OnEvent<EndTileReachedEvent>().Subscribe(ev =>
+            {
+                StockAllActiveResources();
+            });
         }
         private void Init()
         {
