@@ -27,7 +27,7 @@ namespace ChoiceSystem
             foreach (var action in choiceActionDataList)
             {
                 if (action.ActionType is ChoiceActionTypes.GatherResource)
-                    desc += action + Environment.NewLine;
+                    desc += action.ToString() + Environment.NewLine;
                
             }
 
@@ -41,7 +41,7 @@ namespace ChoiceSystem
             foreach (var action in choiceActionDataList)
             {
                 if (action.ActionType is ChoiceActionTypes.ReduceReplenish or ChoiceActionTypes.SpendResource )
-                    desc += action + Environment.NewLine;
+                    desc += action.ToString() + Environment.NewLine;
             }
 
             return colorize ?ColorExtentions.ColorString(desc,new Color(1f, 0.17f, 0.18f)) : desc;
@@ -135,11 +135,11 @@ namespace ChoiceSystem
                 case ChoiceActionTypes.Example:
                     return "Example desc";
                 case ChoiceActionTypes.GatherResource:
-                    return "+" + value + " " + res.ToString();
+                    return "+" + Value + " " + res.ToString();
                 case ChoiceActionTypes.ReduceReplenish:
-                    return "-" + value + " Replenish";
+                    return "-" + Value + " Replenish";
                 case ChoiceActionTypes.SpendResource:
-                    return "-" + value + " " + res.ToString();
+                    return "-" + Value + " " + res.ToString();
                 default:
                     break;
             }

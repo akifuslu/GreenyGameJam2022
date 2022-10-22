@@ -10,11 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 350647e4f2bb4b5ba6d86121cd4f4ee5, type: 3}
-  m_Name: Choice Data
+  m_Name: Collect_Water 2
   m_EditorClassIdentifier: 
-  choiceSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  choiceName: 3
-  description: 13
+  choiceSprite: {fileID: 0}
+  choiceName: Collect Water
   choiceActionDataList:
-  - actionType: 0
-    value: 3
+  - actionType: 1
+    res: 1
+    baseValue: 15
+  - actionType: 2
+    res: 1
+    baseValue: 1

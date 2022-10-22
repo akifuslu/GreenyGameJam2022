@@ -23,21 +23,22 @@ namespace ChoiceSystem
         public void Build(ChoiceDataBase choiceData, bool isSpecial, int spawnIndex)
         {
             MyData = choiceData;
-            CardButton.interactable = choiceData.GetAvailability();
+            CardButton.interactable = MyData.GetAvailability();
             CardButton.onClick.AddListener(TriggerChoice);
-            choiceImage.sprite = choiceData.ChoiceSprite;
-            nameTextField.text = choiceData.ChoiceName;
+            choiceImage.sprite = MyData.ChoiceSprite;
+            nameTextField.text = MyData.ChoiceName;
 
             var str = new StringBuilder();
             if (isSpecial)
                 str.Append(spawnIndex + 1).Append(". ");
-
-            str.Append(choiceData.GetPositiveDescription());
+            
+            str.Append(MyData.GetPositiveDescription());
             positiveDescriptionText.text = str.ToString();
+            
             if (negativeDescriptionText)
             {
                 str.Clear();
-                str.Append(choiceData.GetNegativeDescription());
+                str.Append(MyData.GetNegativeDescription());
                 negativeDescriptionText.text = str.ToString();
             }
 

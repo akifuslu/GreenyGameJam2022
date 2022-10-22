@@ -618,6 +618,8 @@ MonoBehaviour:
   MaxResourceAmount: 12
   MaxReplenish: 3
   Choices:
-  - {fileID: 11400000, guid: a13dc5770a2084d40878ce49c9f05cb4, type: 2}
+  - {fileID: 11400000, guid: 1379b11a92ae25f49abe4ea708b33abf, type: 2}
+  - {fileID: 11400000, guid: 45b9ac24373d2db42ae50bb2924b469e, type: 2}
+  - {fileID: 11400000, guid: e0dd0fd3e74fbbd41b13735d467dddd8, type: 2}
   _resAmountView: {fileID: 2722071803270805381}
   _replenishView: {fileID: 5560000560249441000}

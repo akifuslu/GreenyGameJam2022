@@ -10,11 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 350647e4f2bb4b5ba6d86121cd4f4ee5, type: 3}
-  m_Name: Choice Data 1
+  m_Name: Collect_Metal 3
   m_EditorClassIdentifier: 
-  choiceSprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
-  choiceName: 1
-  description: 11
+  choiceSprite: {fileID: 0}
+  choiceName: Collect Metal
   choiceActionDataList:
-  - actionType: 0
-    value: 1
+  - actionType: 1
+    res: 4
+    baseValue: 10
+  - actionType: 3
+    res: 5
+    baseValue: 15
+  - actionType: 3
+    res: 1
+    baseValue: 45
