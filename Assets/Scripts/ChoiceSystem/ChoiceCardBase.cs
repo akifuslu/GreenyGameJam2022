@@ -13,7 +13,8 @@ namespace ChoiceSystem
         [SerializeField] private Button cardButton;
         [SerializeField] private Image choiceImage;
         [SerializeField] private TextMeshProUGUI nameTextField;
-        [SerializeField] private TextMeshProUGUI descriptionTextField;
+        [SerializeField] private TextMeshProUGUI positiveDescriptionText;
+        [SerializeField] private TextMeshProUGUI negativeDescriptionText;
         
         public ChoiceDataBase MyData { get; private set; }
 
@@ -31,8 +32,14 @@ namespace ChoiceSystem
             if (isSpecial)
                 str.Append(spawnIndex + 1).Append(". ");
 
-            str.Append(choiceData.GetDescription());
-            descriptionTextField.text = str.ToString();
+            str.Append(choiceData.GetPositiveDescription());
+            positiveDescriptionText.text = str.ToString();
+            if (negativeDescriptionText)
+            {
+                str.Clear();
+                str.Append(choiceData.GetNegativeDescription());
+                negativeDescriptionText.text = str.ToString();
+            }
 
             PlayFx(isSpecial, spawnIndex);
         }
@@ -42,7 +49,7 @@ namespace ChoiceSystem
             transform.localScale = Vector3.zero;
             transform.DOScale(Vector3.one, 0.2f).SetEase(Ease.OutBack).SetDelay(0.1f * (spawnIndex + 1));
             if (isSpecial)
-                TextHelper.PlayingText(descriptionTextField, 20f, 0.2f * (spawnIndex + 1));
+                TextHelper.PlayingText(positiveDescriptionText, 20f, 0.2f * (spawnIndex + 1));
         }
 
         public void TriggerChoice()

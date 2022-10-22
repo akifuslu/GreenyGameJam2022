@@ -4,6 +4,7 @@ using Grid;
 using ResourceSystem;
 using UnityEngine;
 using System.Linq;
+using Utility;
 
 namespace ChoiceSystem
 {
@@ -19,16 +20,31 @@ namespace ChoiceSystem
         
         public List<ChoiceActionData> ChoiceActionDatas => choiceActionDataList;
 
-        public virtual string GetDescription()
+        public virtual string GetPositiveDescription(bool colorize = false)
         {
             //return Description;
             string desc = "";
             foreach (var action in choiceActionDataList)
             {
-                desc += action + Environment.NewLine;
+                if (action.ActionType is ChoiceActionTypes.GatherResource)
+                    desc += action + Environment.NewLine;
+               
             }
 
-            return desc;
+            return colorize ?ColorExtentions.ColorString(desc,new Color(0.32f, 1f, 0.48f)) : desc;
+        }
+        
+        public virtual string GetNegativeDescription(bool colorize = false)
+        {
+            //return Description;
+            string desc = "";
+            foreach (var action in choiceActionDataList)
+            {
+                if (action.ActionType is ChoiceActionTypes.ReduceReplenish or ChoiceActionTypes.SpendResource )
+                    desc += action + Environment.NewLine;
+            }
+
+            return colorize ?ColorExtentions.ColorString(desc,new Color(1f, 0.17f, 0.18f)) : desc;
         }
 
         public bool GetAvailability()

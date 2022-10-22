@@ -66,7 +66,8 @@ MonoBehaviour:
   cardButton: {fileID: 745349548359248765}
   choiceImage: {fileID: 7205878893234586123}
   nameTextField: {fileID: 3478927084765946212}
-  descriptionTextField: {fileID: 3480193526140974430}
+  positiveDescriptionText: {fileID: 3480193526140974430}
+  negativeDescriptionText: {fileID: 0}
 --- !u!114 &170412748043290825
 MonoBehaviour:
   m_ObjectHideFlags: 0

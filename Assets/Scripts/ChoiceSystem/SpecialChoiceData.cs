@@ -1,4 +1,5 @@
 using UnityEngine;
+using Utility;
 
 namespace ChoiceSystem
 {
@@ -8,9 +9,9 @@ namespace ChoiceSystem
         [Header("Special")]
         [SerializeField][TextArea] private string specialDescription;
 
-        public override string GetDescription()
+        public override string GetPositiveDescription(bool colorize = false)
         {
-            return specialDescription;
+            return colorize ? ColorExtentions.ColorString(specialDescription,Color.cyan):specialDescription;
         }
     }
 }
