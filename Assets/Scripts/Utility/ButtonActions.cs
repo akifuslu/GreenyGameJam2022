@@ -15,6 +15,11 @@ namespace Utility
             Fader.Instance.FadeScene(1);
         }
         
+        public void LoadCredits()
+        {
+            Fader.Instance.FadeScene(3);
+        }
+        
         public void ExitGame()
         {
             Application.Quit();
