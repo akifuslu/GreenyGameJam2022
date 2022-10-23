@@ -31,7 +31,7 @@ namespace EndGame
             scoreText.gameObject.SetActive(score>0);
             if (score>-1)
             {
-                scoreText.text = "Score: 0";
+                scoreText.text = "Skor: 0";
                 _counterTween =TextHelper.PlayCounter(scoreText, score,startDelay:0.5f,prefix:"Score: ");
             }
         }
