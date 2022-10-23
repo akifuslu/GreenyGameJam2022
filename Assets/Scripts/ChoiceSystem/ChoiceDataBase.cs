@@ -89,7 +89,7 @@ namespace ChoiceSystem
         [SerializeField] private ChoiceActionTypes actionType;
         [SerializeField] private GameResourceTypes res;
         [SerializeField] private int baseValue;
-        private int value;
+        [SerializeField] private int value;
         private ResourceTile tile;
 
         public ChoiceActionTypes ActionType => actionType;
@@ -135,11 +135,13 @@ namespace ChoiceSystem
                 case ChoiceActionTypes.Example:
                     return "Example desc";
                 case ChoiceActionTypes.GatherResource:
-                    return "+" + Value + " <sprite=" + (int)res + ">";
+                case ChoiceActionTypes.InstantGainResource:
+                    return ColorExtentions.ColorString("+" + Value + " <sprite=" + (int)res + ">", Color.green);
                 case ChoiceActionTypes.ReduceReplenish:
-                    return "-" + Value + " Replenish";
+                    return ColorExtentions.ColorString("-" + Value + " yenilenme", Color.red);
                 case ChoiceActionTypes.SpendResource:
-                    return "-" + Value + " <sprite=" + (int)res + ">";
+                case ChoiceActionTypes.InstantSpendResource:
+                    return ColorExtentions.ColorString("-" + Value + " <sprite=" + (int)res + ">", Color.red);
                 default:
                     break;
             }

@@ -20,9 +20,12 @@ namespace ChoiceSystem
 
         public Button CardButton => cardButton;
 
+        private bool special;
+
         public void Build(ChoiceDataBase choiceData, bool isSpecial, int spawnIndex)
         {
             MyData = choiceData;
+            special = isSpecial;
             CardButton.interactable = MyData.GetAvailability();
             CardButton.onClick.AddListener(TriggerChoice);
             choiceImage.sprite = MyData.ChoiceSprite;
@@ -55,8 +58,19 @@ namespace ChoiceSystem
 
         public void TriggerChoice()
         {
-            MyData.TriggerChoiceAction();
-            ChoiceManager.Instance.OnChoiceSelected();
+            if (special)
+            {
+                var res = (MyData as SpecialChoiceData).GetResultDescription();
+                ChoiceManager.Instance.OnChoiceSelectedSpecial(res, () =>
+                {
+                    MyData.TriggerChoiceAction();
+                });
+            }
+            else
+            {
+                MyData.TriggerChoiceAction();
+                ChoiceManager.Instance.OnChoiceSelected();
+            }
         }
         
     }

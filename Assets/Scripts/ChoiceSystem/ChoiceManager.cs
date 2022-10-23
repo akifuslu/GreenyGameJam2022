@@ -66,6 +66,18 @@ namespace ChoiceSystem
             CloseChoiceCanvas();
             OnChoiceSelectedAction?.Invoke();
         }
+
+        public void OnChoiceSelectedSpecial(string result, Action onComplete)
+        {
+            DisposeSpawnedChoiceCards();
+            _activeChoiceCanvas.ShowResult(result);
+            Observable.Timer(TimeSpan.FromSeconds(3)).Subscribe(ev =>
+            {
+                CloseChoiceCanvas();
+                OnChoiceSelectedAction?.Invoke();
+            });
+        }
+
         public void OpenChoiceCanvas(List<ChoiceDataBase> choices, string title = "")
         {
             if (!string.IsNullOrEmpty(title) && !string.IsNullOrWhiteSpace(title))

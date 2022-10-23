@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using Utility;
 
@@ -8,7 +9,7 @@ namespace ChoiceSystem
     {
         [Header("Special")]
         [SerializeField][TextArea] private string specialDescription;
-        [SerializeField] [TextArea] private string resultDescription;
+        [SerializeField][TextArea] private string resultDescription;
 
         public override string GetPositiveDescription(bool colorize = false)
         {
@@ -17,7 +18,12 @@ namespace ChoiceSystem
 
         public string GetResultDescription()
         {
-            return resultDescription;
+            string desc = resultDescription + Environment.NewLine;
+            foreach (var action in ChoiceActionDatas)
+            {
+                desc += action.ToString() + Environment.NewLine;
+            }
+            return desc;
         }
     }
 }

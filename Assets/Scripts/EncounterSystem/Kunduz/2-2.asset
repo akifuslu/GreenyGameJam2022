@@ -15,7 +15,11 @@ MonoBehaviour:
   choiceSprite: {fileID: 0}
   choiceName: Special
   choiceActionDataList:
-  - actionType: 1
-    res: 0
+  - actionType: 6
+    res: 5
+    baseValue: 1
+  - actionType: 6
+    res: 1
     baseValue: 1
   specialDescription: Yoluna devam et
+  resultDescription: "Kunduzlar senden \xE7ald\u0131"

@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 660bc8507c19452eac8e6843e0be0c98, type: 3}
   m_Name: 2- Kunduz
   m_EditorClassIdentifier: 
-  encounterTitle: Haydutlar
+  encounterTitle: Kunduzlar
+  encounterSprite: {fileID: 0}
   encounterDescription: "Kunduzlar yuva yapmak istiyorlar ancak yeterli odunlar\u0131
     yok"
   encounterChoiceDataList:

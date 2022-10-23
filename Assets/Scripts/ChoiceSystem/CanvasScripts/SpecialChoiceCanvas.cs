@@ -11,6 +11,7 @@ namespace ChoiceSystem.CanvasScripts
     {
         [SerializeField] private TextMeshProUGUI mainEventTextField;
         [SerializeField] private Image specialImage;
+        [SerializeField] private TextMeshProUGUI resultText;
 
         private Tween _textDisplayTween;
         public void SetMainEventText(string mainEventText)
@@ -32,7 +33,18 @@ namespace ChoiceSystem.CanvasScripts
         public override void OnClosed()
         {
             if(_textDisplayTween != null) _textDisplayTween.Kill();
+            resultText.enabled = false;
+            Root.gameObject.SetActive(true);
             base.OnClosed();
+        }
+
+        public override void ShowResult(string result)
+        {
+            base.ShowResult(result);
+            Root.gameObject.SetActive(false);
+            resultText.enabled = true;
+            resultText.text = result;
+            TextHelper.PlayingText(resultText, 30);
         }
     }
     

@@ -44,5 +44,10 @@ namespace ChoiceSystem.CanvasScripts
         {
             gameObject.SetActive(false);  
         }
+
+        public virtual void ShowResult(string result)
+        {
+
+        }
     }
 }

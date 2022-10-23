@@ -15,10 +15,11 @@ MonoBehaviour:
   choiceSprite: {fileID: 0}
   choiceName: Special
   choiceActionDataList:
-  - actionType: 4
+  - actionType: 6
     res: 0
-    baseValue: 1
-  - actionType: 1
-    res: 1
-    baseValue: 20
+    baseValue: 5
+  - actionType: 5
+    res: 5
+    baseValue: 5
   specialDescription: Odun ver
+  resultDescription: Kunduzlar sana minnettar
