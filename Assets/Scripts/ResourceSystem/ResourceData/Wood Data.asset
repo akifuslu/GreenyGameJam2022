@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resourceType: 0
   resourceName: Wood
-  resourceSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  resourceSprite: {fileID: 21300000, guid: 5982dfb49a12e485b9da56b16bad312e, type: 3}
   backgroundColor: {r: 0.25943395, g: 0.66970044, b: 1, a: 1}
   collectValue: 1
   excludeStock: 0
