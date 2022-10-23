@@ -10,6 +10,7 @@ using Utility;
 
 namespace ChoiceSystem
 {
+    [DefaultExecutionOrder(-1)]
     public class ChoiceManager : MonoBehaviour
     {
         public static ChoiceManager Instance { get; set; }
@@ -29,6 +30,7 @@ namespace ChoiceSystem
         private void Awake()
         {
             Instance = this;
+            MessageBus.ClearSubs();
             ChoiceActionProcessor.Initialize();
         }
 
