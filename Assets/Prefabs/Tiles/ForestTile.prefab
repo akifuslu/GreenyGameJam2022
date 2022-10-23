@@ -114,6 +114,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TileInfo
       objectReference: {fileID: 0}
+    - target: {fileID: 5043393458012961609, guid: c7933cc53ea0f4228888cb3154158d0f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7267119018580312096, guid: c7933cc53ea0f4228888cb3154158d0f, type: 3}
       propertyPath: m_RootOrder
       value: 2

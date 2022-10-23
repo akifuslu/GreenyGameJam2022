@@ -18,9 +18,12 @@ MonoBehaviour:
   - actionType: 1
     res: 2
     baseValue: 30
+    value: 0
   - actionType: 3
     res: 1
     baseValue: 5
+    value: 0
   - actionType: 3
     res: 5
     baseValue: 5
+    value: 0

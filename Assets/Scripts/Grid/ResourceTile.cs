@@ -5,6 +5,7 @@ using ChoiceSystem;
 using UniRx;
 using TMPro;
 using System.Linq;
+using EncounterSystem;
 
 namespace Grid
 {
@@ -63,7 +64,19 @@ namespace Grid
             base.OnEnter();
             _visited = true;
 
-            ChoiceManager.Instance.OpenChoiceCanvas(_choices);
+            ChoiceManager.Instance.OpenChoiceCanvas(_choices, "", () =>
+            {
+                var r = Random.value;
+                if(r > .6f)
+                {
+                    OnEncounter();
+                }
+            });
+        }
+
+        private void OnEncounter()
+        {
+            EncounterManager.Instance.TriggerAvailRandomEncounter();
         }
 
         public void ReduceReplenish(int amount)

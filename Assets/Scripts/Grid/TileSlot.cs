@@ -18,7 +18,8 @@ namespace Grid
         STONEMINE,
         WATER,
         FARM,
-        DESERT
+        DESERT,
+        TRADE
     }
 
     [ExecuteInEditMode]

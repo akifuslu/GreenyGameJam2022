@@ -19,3 +19,11 @@ MonoBehaviour:
   encounterChoiceDataList:
   - {fileID: 11400000, guid: fcaaa2b19fe59204492fdab5bf2f25d6, type: 2}
   - {fileID: 11400000, guid: dbc9f26872da569459455c3d62067b17, type: 2}
+  Reqs:
+    _elements:
+    - Key: 0
+      Value: 5
+    - Key: 5
+      Value: 1
+    - Key: 1
+      Value: 1

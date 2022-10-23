@@ -63,8 +63,9 @@ namespace ChoiceSystem
         public void OnChoiceSelected()
         {
             DisposeSpawnedChoiceCards();
-            CloseChoiceCanvas();
             OnChoiceSelectedAction?.Invoke();
+            OnChoiceSelectedAction = null;
+            CloseChoiceCanvas();
         }
 
         public void OnChoiceSelectedSpecial(string result, Action onComplete)
@@ -78,8 +79,9 @@ namespace ChoiceSystem
             });
         }
 
-        public void OpenChoiceCanvas(List<ChoiceDataBase> choices, string title = "")
+        public void OpenChoiceCanvas(List<ChoiceDataBase> choices, string title = "", Action onClosed = null)
         {
+            OnChoiceSelectedAction = onClosed;
             if (!string.IsNullOrEmpty(title) && !string.IsNullOrWhiteSpace(title))
             {
                 choiceChoiceCanvas.TitleTextField.gameObject.SetActive(true);

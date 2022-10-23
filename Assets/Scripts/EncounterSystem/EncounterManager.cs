@@ -45,5 +45,21 @@ namespace EncounterSystem
                 TriggerEncounter(rand);
             }
         }
+
+        public void TriggerAvailRandomEncounter()
+        {
+            try
+            {
+                var avail = allEncounterDatalist.Where(a => a.ReqsSatisfied()).ToList().RandomItem();
+                if (avail)
+                {
+                    TriggerEncounter(avail);
+                }
+            }
+            catch(IndexOutOfRangeException)
+            {
+                Debug.Log("No encounters available.");
+            }
+        }
     }
 }
