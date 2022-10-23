@@ -1,6 +1,7 @@
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Playables;
 using UnityEngine.UI;
 using Utility;
 
@@ -11,12 +12,14 @@ namespace EndGame
         [SerializeField] private Image backgroundImage;
         [SerializeField] private Transform root;
         [SerializeField] private TextMeshProUGUI scoreText;
+        [SerializeField] private PlayableDirector playableDirector;
 
         private Tweener _counterTween;
         public void Open(int score =-1)
         {
             root.gameObject.SetActive(true);
             backgroundImage.gameObject.SetActive(true);
+            playableDirector.Play();
             if (backgroundImage)
             {
                 backgroundImage.CrossFadeAlpha(0f,0f,false);
