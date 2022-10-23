@@ -1,4 +1,5 @@
 using System.Text;
+using Audio;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
@@ -71,6 +72,8 @@ namespace ChoiceSystem
                 MyData.TriggerChoiceAction();
                 ChoiceManager.Instance.OnChoiceSelected();
             }
+            
+            PlaySfx.PlayChoiceSelected();
         }
         
     }

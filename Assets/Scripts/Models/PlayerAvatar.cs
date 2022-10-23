@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Audio;
 using Grid;
 using UnityEngine;
 using Utility;
@@ -57,6 +58,7 @@ namespace Models
             _current = target;
 
             OnNewTile();
+            PlaySfx.PlayMove();
         }
 
     }

@@ -1,4 +1,5 @@
 using System;
+using Audio;
 using ResourceSystem;
 using TMPro;
 using UniRx;
@@ -54,7 +55,7 @@ namespace EndGame
 
         private bool TryWin()
         {
-            var stockDict = ResourceManager.Instance.SpawnedResourceCardDict;
+            var stockDict = ResourceManager.Instance.SpawnedStockCardDict;
             foreach (var stock in stockDict)
             {
                 if (stock.Value.TotalAmount<stock.Value.MyData.StockGoalValue)
@@ -70,6 +71,7 @@ namespace EndGame
             if (_isFinished) return;
             _isFinished = true;
             
+            PlaySfx.PlayWin();
             winPanel.Open(ConvertStockToScore());
         }
 
@@ -77,7 +79,7 @@ namespace EndGame
         {
             if (_isFinished) return;
             _isFinished = true;
-            
+            PlaySfx.PlayLose();
             losePanel.Open();
         }
 

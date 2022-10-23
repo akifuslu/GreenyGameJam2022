@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Audio;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
@@ -29,6 +30,7 @@ namespace ChoiceSystem.CanvasScripts
         private void Awake()
         {
             NoChoiceButton.onClick.AddListener(OnClosed);
+            NoChoiceButton.onClick.AddListener(PlaySfx.PlayNegativeButtonClick);
         }
 
         public virtual void Build(List<ChoiceDataBase> choices, bool isSpecial)
@@ -37,7 +39,7 @@ namespace ChoiceSystem.CanvasScripts
             backgroundImage.CrossFadeAlpha(1f, 1f, false);
             Root.localScale = Vector3.zero;
             Root.DOScale(Vector3.one, 0.2f).OnComplete(()=>ChoiceManager.Instance.SpawnChoices(choices,isSpecial));
-
+            PlaySfx.PlayPopupShown();
         }
         
         public virtual void OnClosed()
