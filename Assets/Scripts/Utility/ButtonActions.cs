@@ -7,12 +7,12 @@ namespace Utility
     {
         public void LoadGame()
         {
-            Fader.Instance.FadeScene(1);
+            Fader.Instance.FadeScene(2);
         }
 
         public void LoadMainMenu()
         {
-            Fader.Instance.FadeScene(0);
+            Fader.Instance.FadeScene(1);
         }
         
         public void ExitGame()
