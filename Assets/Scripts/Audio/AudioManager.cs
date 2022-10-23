@@ -9,6 +9,7 @@ namespace Audio
         public static AudioManager Instance;
 
         [SerializeField] private AudioSource sfxSource;
+        [SerializeField] private AudioSource tileSource;
         [SerializeField] private AudioSource musicSource;
         [SerializeField] private SerializedDictionary<SfxClips,AudioClip> sfxClipDict;
         
@@ -37,7 +38,11 @@ namespace Audio
             return null;
         }
 
-
+        public void PlaySfxTile(AudioClip clip)
+        {
+            if (!clip) return;
+            tileSource.PlayOneShot(clip);
+        }
         public void PlaySfx(AudioClip clip)
         {
             if (!clip) return;

@@ -8,6 +8,11 @@ namespace Audio
         Lose,
         Move,
         PopupShown,
-        NegativeButtonClick
+        NegativeButtonClick,
+        Desert,
+        Lake,
+        Mine,
+        Farm,
+        WoodAmbient
     }
 }

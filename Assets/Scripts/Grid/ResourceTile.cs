@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using ResourceSystem;
@@ -5,7 +6,9 @@ using ChoiceSystem;
 using UniRx;
 using TMPro;
 using System.Linq;
+using Audio;
 using EncounterSystem;
+using Random = UnityEngine.Random;
 
 namespace Grid
 {
@@ -88,6 +91,30 @@ namespace Grid
                     OnEncounter();
                 }
             });
+
+            switch (Resource)
+            {
+                case GameResourceTypes.Wood:
+                    PlaySfx.PlayTileClip(SfxClips.WoodAmbient);
+                    break;
+                case GameResourceTypes.Water:
+                    PlaySfx.PlayTileClip(SfxClips.Lake);
+                    break;
+                case GameResourceTypes.Coal:
+                    PlaySfx.PlayTileClip(SfxClips.Mine);
+                    break;
+                case GameResourceTypes.Stone:
+                    PlaySfx.PlayTileClip(SfxClips.Mine);
+                    break;
+                case GameResourceTypes.Metal:
+                    PlaySfx.PlayTileClip(SfxClips.Desert);
+                    break;
+                case GameResourceTypes.Food:
+                    PlaySfx.PlayTileClip(SfxClips.Farm);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
         }
 
         private void OnEncounter()

@@ -10,6 +10,14 @@ namespace Audio
             au.PlaySfx(au.GetClip(SfxClips.ButtonClick));
         }
         
+        public static void PlayTileClip(SfxClips target)
+        {
+            var au = AudioManager.Instance;
+            if (!au) return;
+
+            au.PlaySfxTile(au.GetClip(target));
+        }
+
         public static void PlayNegativeButtonClick()
         {
             var au = AudioManager.Instance;
@@ -28,6 +36,7 @@ namespace Audio
         
         public static void PlayPopupShown()
         {
+            return;
             var au = AudioManager.Instance;
             if (!au) return;
 
