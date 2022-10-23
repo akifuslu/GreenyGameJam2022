@@ -13,13 +13,16 @@ MonoBehaviour:
   m_Name: 1- Haydut
   m_EditorClassIdentifier: 
   encounterTitle: Haydutlar
-  encounterSprite: {fileID: 0}
-  encounterDescription: "Yolda haydutlarla kar\u015F\u0131la\u015Ft\u0131n. Senden
-    e\u015Fyalar\u0131n\u0131 istiyorlar."
+  encounterSprite: {fileID: 851425269, guid: e951258223d4f4543926100602e27e66, type: 3}
+  encounterDescription: "Haydutlar taraf\u0131ndan k\u0131st\u0131r\u0131ld\u0131n"
   encounterChoiceDataList:
   - {fileID: 11400000, guid: 1315bcde182be3848a3eedec11b3c5e9, type: 2}
   - {fileID: 11400000, guid: 30984aca85d973240b1eecf09c99fd25, type: 2}
   Reqs:
     _elements:
     - Key: 4
+      Value: 5
+    - Key: 1
+      Value: 5
+    - Key: 5
       Value: 5

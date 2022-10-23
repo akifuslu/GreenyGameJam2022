@@ -44,7 +44,6 @@ namespace Grid
 
         public void SetOutline(Color color)
         {
-            _outline.enabled = color != Color.white;
             _outline.color = color;
         }
 

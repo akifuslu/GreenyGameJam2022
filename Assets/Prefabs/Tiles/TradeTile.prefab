@@ -56,23 +56,43 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8241678674691731308, guid: 19e75414c72fb43669a194c474a10a74, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6da1a9a9f065b46b288f1e262b380e47, type: 3}
+    - target: {fileID: 8241678674691731308, guid: 19e75414c72fb43669a194c474a10a74, type: 3}
       propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8241678674691731308, guid: 19e75414c72fb43669a194c474a10a74, type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8241678674691731308, guid: 19e75414c72fb43669a194c474a10a74, type: 3}
       propertyPath: m_Color.r
-      value: 0.55893755
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9113910189945345447, guid: 19e75414c72fb43669a194c474a10a74, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.10473238
+      objectReference: {fileID: 0}
+    - target: {fileID: 9113910189945345447, guid: 19e75414c72fb43669a194c474a10a74, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.10473238
+      objectReference: {fileID: 0}
+    - target: {fileID: 9113910189945345447, guid: 19e75414c72fb43669a194c474a10a74, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.10473238
+      objectReference: {fileID: 0}
+    - target: {fileID: 9113910189945345447, guid: 19e75414c72fb43669a194c474a10a74, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.074
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -5897833879573100680, guid: 19e75414c72fb43669a194c474a10a74, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 19e75414c72fb43669a194c474a10a74, type: 3}
---- !u!212 &6162591226713790203 stripped
+--- !u!212 &178998151309028974 stripped
 SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 4568420784865991046, guid: 19e75414c72fb43669a194c474a10a74, type: 3}
+  m_CorrespondingSourceObject: {fileID: 7536857199960514835, guid: 19e75414c72fb43669a194c474a10a74, type: 3}
   m_PrefabInstance: {fileID: 7702182780020723581}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &8756589291756499823 stripped
@@ -92,4 +112,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d09ff89cfbbce40ca8d04c1472b5761e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _outline: {fileID: 6162591226713790203}
+  _outline: {fileID: 178998151309028974}

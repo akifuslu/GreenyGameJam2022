@@ -15,16 +15,21 @@ MonoBehaviour:
   choiceSprite: {fileID: 0}
   choiceName: 
   choiceActionDataList:
-  - actionType: 1
-    res: 3
-    baseValue: 10
-  - actionType: 1
-    res: 0
-    baseValue: 10
+  - actionType: 6
+    res: 1
+    baseValue: 5
+    value: 5
+  - actionType: 6
+    res: 5
+    baseValue: 5
+    value: 5
   - actionType: 3
     res: 1
     baseValue: 10
+    value: 0
   - actionType: 3
     res: 5
     baseValue: 10
+    value: 0
   specialDescription: "M\xFCcadele et"
+  resultDescription: "Zorlukla olsa da haydutlar\u0131 atlatt\u0131n"

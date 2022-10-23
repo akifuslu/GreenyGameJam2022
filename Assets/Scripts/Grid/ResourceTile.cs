@@ -86,9 +86,12 @@ namespace Grid
             ChoiceManager.Instance.OpenChoiceCanvas(_choices, "", () =>
             {
                 var r = Random.value;
-                if(r > .6f)
+                if(r > .5f)
                 {
-                    OnEncounter();
+                    Observable.NextFrame().Subscribe(ev =>
+                    {
+                        OnEncounter();
+                    });
                 }
             });
 

@@ -15,7 +15,9 @@ MonoBehaviour:
   choiceSprite: {fileID: 0}
   choiceName: 
   choiceActionDataList:
-  - actionType: 4
-    res: 0
-    baseValue: 0
+  - actionType: 6
+    res: 4
+    baseValue: 5
+    value: 5
   specialDescription: "\u0130stediklerini ver"
+  resultDescription: "Haydutlar de\u011Ferli metallerini alarak ka\xE7t\u0131"

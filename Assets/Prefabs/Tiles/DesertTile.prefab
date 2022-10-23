@@ -17,7 +17,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7267119018580312096, guid: c7933cc53ea0f4228888cb3154158d0f, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7267119018580312096, guid: c7933cc53ea0f4228888cb3154158d0f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -138,25 +138,58 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7121787711340587297, guid: 19e75414c72fb43669a194c474a10a74, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8241678674691731308, guid: 19e75414c72fb43669a194c474a10a74, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c4842fc3c98534e4b8ba576775a98611, type: 3}
+    - target: {fileID: 8241678674691731308, guid: 19e75414c72fb43669a194c474a10a74, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8241678674691731308, guid: 19e75414c72fb43669a194c474a10a74, type: 3}
       propertyPath: m_Color.g
-      value: 0.8724341
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8241678674691731308, guid: 19e75414c72fb43669a194c474a10a74, type: 3}
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9113910189945345447, guid: 19e75414c72fb43669a194c474a10a74, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.080639996
+      objectReference: {fileID: 0}
+    - target: {fileID: 9113910189945345447, guid: 19e75414c72fb43669a194c474a10a74, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.080639996
+      objectReference: {fileID: 0}
+    - target: {fileID: 9113910189945345447, guid: 19e75414c72fb43669a194c474a10a74, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.080639996
+      objectReference: {fileID: 0}
+    - target: {fileID: 9113910189945345447, guid: 19e75414c72fb43669a194c474a10a74, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.005
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -5897833879573100680, guid: 19e75414c72fb43669a194c474a10a74, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 19e75414c72fb43669a194c474a10a74, type: 3}
+--- !u!212 &178998151309028974 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 7536857199960514835, guid: 19e75414c72fb43669a194c474a10a74, type: 3}
+  m_PrefabInstance: {fileID: 7702182780020723581}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &1766525377484529681 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 8241678674691731308, guid: 19e75414c72fb43669a194c474a10a74, type: 3}
+  m_PrefabInstance: {fileID: 7702182780020723581}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4409670526879478697 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6328100176266083540, guid: 19e75414c72fb43669a194c474a10a74, type: 3}
-  m_PrefabInstance: {fileID: 7702182780020723581}
-  m_PrefabAsset: {fileID: 0}
---- !u!212 &6162591226713790203 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 4568420784865991046, guid: 19e75414c72fb43669a194c474a10a74, type: 3}
   m_PrefabInstance: {fileID: 7702182780020723581}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &8756589291756499823 stripped
@@ -176,7 +209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed9b916a4775c458694b388facbd4750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _outline: {fileID: 6162591226713790203}
+  _outline: {fileID: 178998151309028974}
   Resource: 2
   MaxResourceAmount: 10
   MaxReplenish: 0
@@ -186,3 +219,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: decf527f31d17b14c9f832865465a83a, type: 2}
   _resAmountView: {fileID: 1170677404732283723}
   _replenishView: {fileID: 8705667032148928038}
+  _icon: {fileID: 1766525377484529681}
+  _iconSet:
+  - {fileID: 21300000, guid: 35b1a717b4416487c9f0a515008f1c30, type: 3}
+  - {fileID: 21300000, guid: d2c77621ac8874e1cbee0d23ad6123dd, type: 3}
+  - {fileID: 21300000, guid: c4842fc3c98534e4b8ba576775a98611, type: 3}
