@@ -22,6 +22,7 @@ namespace UniRx
 
     public interface IMessageBroker : IMessagePublisher, IMessageReceiver
     {
+        void Clear();
     }
 
     public interface IAsyncMessagePublisher
@@ -97,6 +98,17 @@ namespace UniRx
                 if (!isDisposed)
                 {
                     isDisposed = true;
+                    notifiers.Clear();
+                }
+            }
+        }
+        
+        public void Clear()
+        {
+            lock (notifiers)
+            {
+                if (!isDisposed)
+                {
                     notifiers.Clear();
                 }
             }

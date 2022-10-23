@@ -47,6 +47,7 @@ namespace Utility
         /// </summary>
         public static void ClearSubs()
         {
+            MessageBroker.Default.Clear();
             //MessageBroker.Default.ClearSubs();
         }
     }
