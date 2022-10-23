@@ -46,8 +46,8 @@ namespace Views
                         });
 
                     _dayText.text = "GÜN " + ev + "/" + dayCycle.TotalDays;
-                    _dayText.rectTransform.anchoredPosition = Vector2.zero;
-                    _dayText.rectTransform.DOAnchorPosY(Screen.height / 2 - 100, .5f).SetDelay(1).SetEase(Ease.InBack);
+                    //_dayText.rectTransform.anchoredPosition = Vector2.zero;
+                    _dayText.rectTransform.DOAnchorPosY(0f, .5f).SetDelay(1).SetEase(Ease.InBack);
                 });
             });
         }
