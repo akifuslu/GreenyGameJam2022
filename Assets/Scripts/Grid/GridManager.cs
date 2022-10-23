@@ -174,7 +174,8 @@ namespace Grid
                 lb.y += _tileRadius * Mathf.Sqrt(3) / 2;
             }
         }
-    }
 #endif
+    }
+
 
 }
