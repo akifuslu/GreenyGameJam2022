@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Collect_Coal 3
   m_EditorClassIdentifier: 
   choiceSprite: {fileID: 0}
-  choiceName: Mine Coal
+  choiceName: "END\xDCSTR\u0130YEL"
   choiceActionDataList:
   - actionType: 1
     res: 2

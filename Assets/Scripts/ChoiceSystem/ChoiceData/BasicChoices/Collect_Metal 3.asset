@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Collect_Metal 3
   m_EditorClassIdentifier: 
   choiceSprite: {fileID: 0}
-  choiceName: Collect Metal
+  choiceName: "YA\u011EMACI"
   choiceActionDataList:
   - actionType: 1
     res: 4

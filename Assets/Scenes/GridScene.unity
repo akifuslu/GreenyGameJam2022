@@ -1125,7 +1125,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: DAY 1 OF 5
+  m_text: "G\xDCN 1 / 5"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 749b9069dc4742c5bfa5c74644049926, type: 2}
@@ -2873,6 +2873,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1732996010763212061, guid: 424b801a2cf89d447af3b55574fed2b6, type: 3}
+      propertyPath: m_Spacing.y
+      value: -20
+      objectReference: {fileID: 0}
     - target: {fileID: 1983700723300056304, guid: 424b801a2cf89d447af3b55574fed2b6, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -3052,7 +3056,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3525097794614148933, guid: 77a7626b206aab449a3a8e2bb5afd44e, type: 3}
       propertyPath: m_text
-      value: STOCK
+      value: "SI\u011EINAK"
       objectReference: {fileID: 0}
     - target: {fileID: 3525097794614148933, guid: 77a7626b206aab449a3a8e2bb5afd44e, type: 3}
       propertyPath: m_fontSize
@@ -3104,7 +3108,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4313910521087753193, guid: 77a7626b206aab449a3a8e2bb5afd44e, type: 3}
       propertyPath: m_text
-      value: BACKPACK
+      value: "\xC7ANTA"
       objectReference: {fileID: 0}
     - target: {fileID: 4313910521087753193, guid: 77a7626b206aab449a3a8e2bb5afd44e, type: 3}
       propertyPath: m_fontSize

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Collect_Water 1
   m_EditorClassIdentifier: 
   choiceSprite: {fileID: 0}
-  choiceName: Collect Water
+  choiceName: "DO\u011EA DOSTU"
   choiceActionDataList:
   - actionType: 1
     res: 1

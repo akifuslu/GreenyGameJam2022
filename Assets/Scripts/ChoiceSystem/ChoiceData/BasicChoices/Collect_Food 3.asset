@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Collect_Food 3
   m_EditorClassIdentifier: 
   choiceSprite: {fileID: 0}
-  choiceName: Harvest Food
+  choiceName: "TAHR\u0130BAT"
   choiceActionDataList:
   - actionType: 1
     res: 5

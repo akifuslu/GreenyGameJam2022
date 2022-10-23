@@ -37,12 +37,12 @@ namespace Grid
 
             _resourceAmount.Subscribe(ev =>
             {
-                _resAmountView.text = ev.ToString();
+                _resAmountView.text = "stok: " + ev.ToString() + "<sprite=" + (int)Resource+ ">";
             });
 
             _replenish.Subscribe(ev =>
             {
-                _replenishView.text = (ev > 0 ? "+" : "") + ev.ToString();
+                _replenishView.text = "yenilenme +" + ev.ToString();
             });
 
             _choices = new List<ChoiceDataBase>();
@@ -69,6 +69,7 @@ namespace Grid
         public void ReduceReplenish(int amount)
         {
             _replenish.Value -= amount;
+            _replenish.Value = Mathf.Clamp(_replenish.Value, 0, MaxReplenish);
         }
 
         public void ReduceResource(int amount)

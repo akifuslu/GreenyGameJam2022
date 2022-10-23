@@ -135,11 +135,11 @@ namespace ChoiceSystem
                 case ChoiceActionTypes.Example:
                     return "Example desc";
                 case ChoiceActionTypes.GatherResource:
-                    return "+" + Value + " " + res.ToString();
+                    return "+" + Value + " <sprite=" + (int)res + ">";
                 case ChoiceActionTypes.ReduceReplenish:
                     return "-" + Value + " Replenish";
                 case ChoiceActionTypes.SpendResource:
-                    return "-" + Value + " " + res.ToString();
+                    return "-" + Value + " <sprite=" + (int)res + ">";
                 default:
                     break;
             }

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Collect_Stone 1
   m_EditorClassIdentifier: 
   choiceSprite: {fileID: 0}
-  choiceName: Mine Stone
+  choiceName: TOPLAYICI
   choiceActionDataList:
   - actionType: 1
     res: 3
