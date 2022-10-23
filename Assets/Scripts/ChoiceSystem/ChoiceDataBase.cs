@@ -40,7 +40,7 @@ namespace ChoiceSystem
             string desc = "";
             foreach (var action in choiceActionDataList)
             {
-                if (action.ActionType is ChoiceActionTypes.ReduceReplenish or ChoiceActionTypes.SpendResource )
+                if (action.ActionType == ChoiceActionTypes.ReduceReplenish || action.ActionType == ChoiceActionTypes.SpendResource )
                     desc += action.ToString() + Environment.NewLine;
             }
 

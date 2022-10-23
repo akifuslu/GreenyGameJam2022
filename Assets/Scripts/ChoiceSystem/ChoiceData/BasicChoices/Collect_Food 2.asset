@@ -20,4 +20,4 @@ MonoBehaviour:
     baseValue: 15
   - actionType: 2
     res: 5
-    baseValue: 1
+    baseValue: 5

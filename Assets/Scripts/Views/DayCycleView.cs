@@ -7,6 +7,7 @@ using UniRx;
 using UnityEngine.UI;
 using DG.Tweening;
 using Utility;
+using EndGame;
 
 namespace Views
 {
@@ -21,10 +22,17 @@ namespace Views
 
         public void Bind(DayCycle dayCycle)
         {
+            _overlay.color = Color.black;
             dayCycle.CurrentDay.Subscribe(ev =>
             {
                 if (ev == 0)
                     return;
+
+                if(ev > dayCycle.TotalDays)
+                {
+                    MessageBus.Publish(new EndGameEvent());
+                    return;
+                }
 
                 _overlay.raycastTarget = true;
                 _overlay.DOFade(1, .25f).OnComplete(() =>
@@ -37,7 +45,7 @@ namespace Views
                             MessageBus.Publish(new DayStartedEvent());
                         });
 
-                    _dayText.text = "DAY " + ev;
+                    _dayText.text = "DAY " + ev + " OF " + dayCycle.TotalDays;
                     _dayText.rectTransform.anchoredPosition = Vector2.zero;
                     _dayText.rectTransform.DOAnchorPosY(Screen.height / 2 - 100, .5f).SetDelay(1).SetEase(Ease.InBack);
                 });

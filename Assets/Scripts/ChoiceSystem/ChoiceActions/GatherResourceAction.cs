@@ -7,8 +7,9 @@ namespace ChoiceSystem.ChoiceActions
         public override ChoiceActionTypes ActionType => ChoiceActionTypes.GatherResource;
         public override void DoAction(CardActionParameters actionParameters)
         {
-            actionParameters.Tile.ReduceResource(actionParameters.Value);
             ResourceSystem.ResourceManager.Instance.IncreaseResource(actionParameters.Res, actionParameters.Value);
+
+            actionParameters.Tile.ReduceResource(actionParameters.Value);
         }
     }
 }

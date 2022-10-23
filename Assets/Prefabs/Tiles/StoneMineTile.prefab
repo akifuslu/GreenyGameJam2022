@@ -615,7 +615,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _outline: {fileID: 6162591226713790203}
   Resource: 3
-  MaxResourceAmount: 12
+  MaxResourceAmount: 100
   MaxReplenish: 0
   Choices:
   - {fileID: 11400000, guid: 1379b11a92ae25f49abe4ea708b33abf, type: 2}

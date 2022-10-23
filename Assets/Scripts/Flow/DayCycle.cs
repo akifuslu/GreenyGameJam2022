@@ -12,7 +12,7 @@ namespace Flow
     {
 
         public IntReactiveProperty CurrentDay = new IntReactiveProperty();
-
+        public int TotalDays;
 
         private void Awake()
         {

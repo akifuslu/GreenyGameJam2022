@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: Collect_Wood 1
   m_EditorClassIdentifier: 
   choiceSprite: {fileID: 0}
-  choiceName: Chop Wood
+  choiceName: "Do\u011Fa Dostu"
   choiceActionDataList:
   - actionType: 1
     res: 0
     baseValue: 10
+  - actionType: 2
+    res: 0
+    baseValue: 1
