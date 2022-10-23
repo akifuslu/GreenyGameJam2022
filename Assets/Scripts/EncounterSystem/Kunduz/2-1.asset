@@ -18,8 +18,10 @@ MonoBehaviour:
   - actionType: 6
     res: 0
     baseValue: 5
+    value: 5
   - actionType: 5
     res: 5
     baseValue: 5
+    value: 5
   specialDescription: Odun ver
   resultDescription: Kunduzlar sana minnettar

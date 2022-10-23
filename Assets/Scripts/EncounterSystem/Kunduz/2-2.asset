@@ -18,8 +18,10 @@ MonoBehaviour:
   - actionType: 6
     res: 5
     baseValue: 1
+    value: 1
   - actionType: 6
     res: 1
     baseValue: 1
+    value: 1
   specialDescription: Yoluna devam et
   resultDescription: "Kunduzlar senden \xE7ald\u0131"
