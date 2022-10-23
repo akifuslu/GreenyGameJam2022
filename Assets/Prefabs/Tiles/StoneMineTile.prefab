@@ -94,6 +94,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: StoneMineTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1848361262578314616, guid: 19e75414c72fb43669a194c474a10a74, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6328100176266083540, guid: 19e75414c72fb43669a194c474a10a74, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -139,20 +143,41 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8241678674691731308, guid: 19e75414c72fb43669a194c474a10a74, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4b6e5d4fb832743f0af2b8f73fd22cb8, type: 3}
+    - target: {fileID: 8241678674691731308, guid: 19e75414c72fb43669a194c474a10a74, type: 3}
       propertyPath: m_Color.b
-      value: 0.107600555
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8241678674691731308, guid: 19e75414c72fb43669a194c474a10a74, type: 3}
       propertyPath: m_Color.g
-      value: 0.50765
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8241678674691731308, guid: 19e75414c72fb43669a194c474a10a74, type: 3}
       propertyPath: m_Color.r
-      value: 0.735849
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9113910189945345447, guid: 19e75414c72fb43669a194c474a10a74, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.096426904
+      objectReference: {fileID: 0}
+    - target: {fileID: 9113910189945345447, guid: 19e75414c72fb43669a194c474a10a74, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.096426904
+      objectReference: {fileID: 0}
+    - target: {fileID: 9113910189945345447, guid: 19e75414c72fb43669a194c474a10a74, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.096426904
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -5897833879573100680, guid: 19e75414c72fb43669a194c474a10a74, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 19e75414c72fb43669a194c474a10a74, type: 3}
+--- !u!212 &1766525377484529681 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 8241678674691731308, guid: 19e75414c72fb43669a194c474a10a74, type: 3}
+  m_PrefabInstance: {fileID: 7702182780020723581}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4409670526879478697 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6328100176266083540, guid: 19e75414c72fb43669a194c474a10a74, type: 3}
@@ -190,3 +215,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e0dd0fd3e74fbbd41b13735d467dddd8, type: 2}
   _resAmountView: {fileID: 1001004366800372187}
   _replenishView: {fileID: 7281162554728283318}
+  _icon: {fileID: 1766525377484529681}
+  _iconSet:
+  - {fileID: 21300000, guid: 2d722844bbd1a47838b5fc7154db30d2, type: 3}
+  - {fileID: 21300000, guid: c1889e96d8b0c45e2944c0693e94601d, type: 3}
+  - {fileID: 21300000, guid: 4b6e5d4fb832743f0af2b8f73fd22cb8, type: 3}

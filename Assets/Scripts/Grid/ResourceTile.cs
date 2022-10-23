@@ -21,6 +21,10 @@ namespace Grid
         private TextMeshPro _resAmountView;
         [SerializeField]
         private TextMeshPro _replenishView;
+        [SerializeField]
+        private SpriteRenderer _icon;
+        [SerializeField]
+        private List<Sprite> _iconSet;
 
         private IntReactiveProperty _resourceAmount;
         private IntReactiveProperty _replenish;
@@ -39,6 +43,18 @@ namespace Grid
             _resourceAmount.Subscribe(ev =>
             {
                 _resAmountView.text = "stok: " + ev.ToString() + "<sprite=" + (int)Resource+ ">";
+
+                var ratio = (float)ev / MaxResourceAmount;
+                if (_iconSet.Count == 0)
+                    return;
+
+                if (ev > .66f)
+                    _icon.sprite = _iconSet[2];
+                else if (ev > .33f)
+                    _icon.sprite = _iconSet[1];
+                else
+                    _icon.sprite = _iconSet[0];
+
             });
 
             _replenish.Subscribe(ev =>
