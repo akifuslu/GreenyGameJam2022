@@ -139,9 +139,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8241678674691731308, guid: 19e75414c72fb43669a194c474a10a74, type: 3}
+      propertyPath: m_Size.x
+      value: 10.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 8241678674691731308, guid: 19e75414c72fb43669a194c474a10a74, type: 3}
+      propertyPath: m_Size.y
+      value: 10.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 8241678674691731308, guid: 19e75414c72fb43669a194c474a10a74, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 18ef65ab66e344828ba8bd862b9ade29, type: 3}
+      objectReference: {fileID: 21300000, guid: 0f7e7a61d40e945dca28d5db845034cb, type: 3}
     - target: {fileID: 8241678674691731308, guid: 19e75414c72fb43669a194c474a10a74, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -213,6 +221,6 @@ MonoBehaviour:
   _replenishView: {fileID: 4251461111099693497}
   _icon: {fileID: 1766525377484529681}
   _iconSet:
-  - {fileID: 21300000, guid: 80ebf7e6cc902499cbd048bc562b66e8, type: 3}
-  - {fileID: 21300000, guid: 80ebf7e6cc902499cbd048bc562b66e8, type: 3}
-  - {fileID: 21300000, guid: 18ef65ab66e344828ba8bd862b9ade29, type: 3}
+  - {fileID: 21300000, guid: df935fc0512ed4605b197e7744842069, type: 3}
+  - {fileID: 21300000, guid: e5936af5c0b974bdabc369ab63ab5565, type: 3}
+  - {fileID: 21300000, guid: 0f7e7a61d40e945dca28d5db845034cb, type: 3}
